@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graziano e Anna - Ci Sposiamo!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
+        rel="stylesheet">
+    <style>
+        /* MANDATORY RESPONSIVE TEXT PROTECTION */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* NESSUNA PAROLA SPEZZATA */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        span,
+        div,
+        strong {
+            hyphens: none;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            word-break: normal;
+        }
+
+        @font-face {
+            font-family: 'FlorilaneCardillac';
+            src: url('FlorilaneCardillac.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --color-primary:  #7C2a36; /*#571443; #d4a5a5; */
+            --color-secondary: #f5e6d3;
+            --color-accent: #7C2a36; /*571443; #c9a86a; */
+            --color-text: #2c2c2c;
+            --color-text-light: #666;
+            --color-white: #ffffff;
+            --color-cream: #faf8f5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* DESKTOP/TABLET: solo sfondo laterale side.png */
+            background-image:
+                url("side.png"),
+                url("side.png");
+            background-repeat: repeat-y, repeat-y;
+            background-position: left center, right center;
+            background-size: 120px auto, 120px auto;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight:600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Bottone hamburger (desktop: nascosto) */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            margin-left: auto;
+        }
+
+        .nav-toggle-line {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--color-text);
+            margin: 4px 0;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        /* Nav-menu stato mobile aperto */
+        .nav-menu.open {
+            display: flex !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),
+                url("home.jpg") center center / cover no-repeat;
+            padding: 100px 30px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-size: 82px;
+            font-weight: 300;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--color-text);
+            margin-bottom: 30px;
+        }
+
+        .hero-date {
+            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-size: 40px;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+
+        .hero-location {
+            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-size: 40px;
+            color: var(--color-accent);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 106, 0.4);
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--color-accent);
+            margin: 25px auto;
+        }
+
+        /* Section Styles (desktop / base) */
+        section {
+            padding: 80px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-alt {
+            background: var(--color-cream);
+        }
+
+        .section-title {
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-size: 62px;
+            font-weight: 400;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-time {
+            flex: 1;
+            text-align: right;
+            padding-right: 50px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-accent);
+        }
+
+        .timeline-item:nth-child(even) .timeline-time {
+            text-align: left;
+            padding-left: 50px;
+            padding-right: 0;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--color-primary);
+            border: 3px solid var(--color-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--color-accent);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 40px;
+            background: var(--color-white);
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            padding-right: 40px;
+            padding-left: 10px;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: var(--color-text-light);
+            font-size: 15px;
+        }
+
+        .program-location-link {
+            color: var(--color-accent);
+            text-decoration: underline;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .program-location-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* Venue Cards */
+        .venue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .venue-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+
+        .venue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .venue-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        .venue-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+
+        .venue-address {
+            color: var(--color-text-light);
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .venue-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--color-secondary);
+            color: var(--color-accent);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .venue-link:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        /* Immagini per le venue */
+        .venue-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        /* Accommodation Cards */
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .accommodation-card {
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+
+        .accommodation-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .accommodation-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            word-break: break-word;
+        }
+
+        .accommodation-card p {
+            color: var(--color-text-light);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .accommodation-distance {
+            color: var(--color-accent);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .accommodation-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: transparent;
+            color: var(--color-primary);
+            text-decoration: none;
+            border: 1px solid var(--color-primary);
+            border-radius: 20px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .accommodation-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* RSVP Content */
+        .rsvp-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .rsvp-text {
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .rsvp-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .rsvp-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 106, 0.4);
+        }
+
+        #storia {
+            position: relative;
+            overflow: hidden;
+            /* leggero overlay per non perdere leggibilità del testo */
+            background-image:
+                linear-gradient(to bottom, rgba(250, 248, 245, 0.80), rgba(245, 230, 211, 0.80)),
+                url("japan.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /*#storia {
+            position: relative;
+            overflow: hidden;
+            background-image:
+                url("japan.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }*/
+
+        .story-image-top {
+            max-width: 1000px;          /* allineata alla larghezza del testo */
+            margin: 40px auto 30px;    /* spazio sopra e sotto */
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+            height: 200px;                 /* altezza del “ritaglio” – regola a gusto */
+        }
+
+        .story-image-top img {
+            width: 100%;
+            height: 100%;                  /* riempi il contenitore in altezza */
+            object-fit: cover;             /* taglia mantenendo proporzioni */
+            object-position: center 30%;/* puoi spostare il focus: top / 30% 50% ecc. */
+            display: block;
+        }
+        
+        /* Love Story */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .story-column {
+            min-width: 0;
+            background: rgba(255, 255, 255, 0.60); /* bianco semi-trasparente */
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        /* opzionale: riduci un po’ il padding su mobile per non stringere troppo */
+        @media (max-width: 768px) {
+            .story-column {
+                padding: 20px 18px;
+            }
+
+            .story-image-top {
+                height: 100px;              /* più bassa su mobile */
+                margin: 10px auto 10px;     /* un po’ meno spazio */
+            }
+
+            .story-image-top img {
+                object-position: center top; /* se vuoi “spostare” il focus verso l’alto */
+            }
+        }
+
+        .story-column p {
+            margin-bottom: 25px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .story-column p:first-child::first-letter {
+            font-size: 48px;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-primary);
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+
+        /* Photos Section */
+        .photos-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .photos-btn {
+            display: inline-block;
+            padding: 15px 50px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .photos-btn:hover {
+            background: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 165, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-text);
+            color: var(--color-white);
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .footer-date {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* --- MOBILE: body con back.jpg al 150% + gradiente per ogni sezione --- */
+        @media (max-width: 768px) {
+            body {
+                /* NIENTE side.png su mobile, solo back.jpg meno zoom (150%) */
+                background-image: url("back.jpg");
+                background-repeat: repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                background-size: 150% auto;
+                background-color: var(--color-white);
+            }
+
+            .nav-container {
+                padding: 0 16px;
+            }
+
+            /* Mostra hamburger su mobile */
+            .nav-toggle {
+                display: block;
+            }
+
+            /* Menu a tendina mobile: nascosto di default, a tutta larghezza sotto l’header */
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                list-style: none;
+                padding: 10px 0 12px;
+                margin: 0;
+                display: none;
+                /* di base chiuso */
+                flex-direction: column;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 20px;
+                border-top: 1px solid #f0f0f0;
+                font-size: 15px;
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 100px 20px 60px;
+                background-position: center top;
+                background-size: cover;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: 32px;
+                line-height: 1.1;
+                margin-bottom: 16px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .hero-date {
+                font-size: 16px;
+            }
+
+            .hero-location {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 60px 20px;
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-intro {
+                font-size: 14px;
+                padding: 0 8px;
+            }
+
+            /* CONTENITORE MOBILE: gradiente trasparente per tutte le sezioni bg-section */
+            .bg-section {
+                max-width: 100vw;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+            }
+
+            .bg-section-inner {
+                /* Velo in gradiente dall'alto verso il basso, semi-trasparente */
+                background: linear-gradient(to bottom,
+                        rgba(250, 248, 245, 0.85),
+                        rgba(245, 230, 211, 0.75),
+                        rgba(245, 230, 211, 0.0));
+                width: 100%;
+                min-height: 520px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 60px 20px;
+            }
+
+            .bg-section-box {
+                background: var(--color-white);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-title {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .bg-section-intro {
+                text-align: center;
+                color: var(--color-text-light);
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            /* Timeline dentro il box */
+            .timeline {
+                max-width: 100%;
+                margin-top: 8px;
+                padding-left: 20px;
+            }
+
+            .timeline::before {
+                left: 12px;
+                transform: none;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                padding-left: 24px;
+            }
+
+            .timeline-time {
+                text-align: left !important;
+                padding: 0 0 6px 0 !important;
+                font-size: 18px;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: 0;
+            }
+
+            .timeline-content {
+                padding: 16px 18px !important;
+                width: 100%;
+                margin-top: 4px;
+            }
+
+            .timeline-content h3 {
+                font-size: 18px;
+            }
+
+            .timeline-content p {
+                font-size: 14px;
+            }
+
+            /* Griglie dentro il box */
+            .venue-grid,
+            .accommodation-grid,
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .venue-card,
+            .accommodation-card {
+                padding: 22px;
+            }
+
+            .venue-card h3 {
+                font-size: 22px;
+            }
+
+            .accommodation-card h3 {
+                font-size: 20px;
+            }
+
+            .accommodation-card p,
+            .venue-address {
+                font-size: 14px;
+            }
+
+            .story-column p {
+                font-size: 14px;
+            }
+
+            .section-alt {
+                background: transparent;
+            }
+
+            .rsvp-container {
+                padding: 0;
+            }
+
+            .photos-content {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 600px),
+        (max-height: 500px) {
+
+            .venue-grid,
+            .accommodation-grid,
+            .story-content {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .bg-section-inner {
+                min-height: 500px;
+                padding: 50px 16px;
+            }
+        }
+
+        /* WedGames Section */
+        .wedgames-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wedgames-inner {
+            position: relative;
+        }
+
+        .wedgames-box {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .wedgames-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #ffb6c1, #ffd27f);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .wedgames-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+            opacity: 0.95;
+        }
+
+        /* Coriandoli */
+        .confetti {
+            position: absolute;
+            top: -40px;
+            width: 12px;
+            height: 18px;
+            background: #ffd27f;
+            border-radius: 2px;
+            animation: confetti-fall 4s linear infinite;
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        .confetti-1 {
+            left: 10%;
+            background: #ffd27f;
+            animation-delay: 0s;
+        }
+
+        .confetti-2 {
+            left: 45%;
+            background: #ffb6c1;
+            animation-delay: 1s;
+        }
+
+        .confetti-3 {
+            left: 80%;
+            background: #c9a86a;
+            animation-delay: 2s;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Fontane luminose stilizzate */
+        .fountain {
+            position: absolute;
+            bottom: 0;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .fountain-left {
+            left: 5%;
+        }
+
+        .fountain-right {
+            right: 5%;
+        }
+
+        .fountain span {
+            display: block;
+            width: 6px;
+            height: 80px;
+            margin: 0 4px;
+            border-radius: 50px;
+            background: linear-gradient(to top, rgba(255, 215, 130, 0.1), rgba(255, 215, 130, 0.9));
+            animation: fountain-spark 1.6s ease-in-out infinite;
+        }
+
+        .fountain span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fountain span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fountain-spark {
+            0% {
+                transform: translateY(0) scaleY(0.4);
+                opacity: 0.2;
+            }
+
+            40% {
+                transform: translateY(-20px) scaleY(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-60px) scaleY(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile tweaks WedGames */
+        @media (max-width: 768px) {
+            .fountain-left {
+                left: 2%;
+            }
+
+            .fountain-right {
+                right: 2%;
+            }
+
+            .fountain {
+                width: 90px;
+                height: 120px;
+            }
+
+            .wedgames-btn {
+                width: 100%;
+                max-width: 260px;
+                font-size: 16px;
+                padding: 14px 24px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body><!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container"><a href="#home" class="nav-logo">G & A</a><!-- Bottone hamburger (mobile) --><button
+                class="nav-toggle" aria-label="Apri menù"><span class="nav-toggle-line"></span><span
+                    class="nav-toggle-line"></span><span
+                    class="nav-toggle-line"></span></button><!-- Menu principale -->
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programma">Programma</a></li>
+                <li><a href="#luoghi">Luoghi</a></li>
+                <li><a href="#pernottamento">Dove dormire</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#storia">Il viaggio continua</a></li>
+                <li><a href="#foto">Foto</a></li>
+                <li><a href="#wedgames">WedGames!</a></li>
+            </ul>
+        </div>
+    </nav><!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Graziano e Anna</h1>
+            <div class="hero-divider"></div><!-- <p class="hero-subtitle">Ci sposiamo!</p> -->
+            <p class="hero-date">Lunedì 7 dicembre 2026</p>
+            <p class="hero-location">Lanciano (CH)</p><a href="#programma" class="hero-btn">Scopri i dettagli</a>
+        </div>
+    </section><!-- Schedule Section -->
+    <section id="programma" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <h2 class="section-title bg-section-title">Programma del Matrimonio</h2>
+                <p class="section-intro bg-section-intro">
+                    Un giorno speciale che vogliamo condividere con voi. Ecco il programma degli eventi!
+                </p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">06/12 - h18:30</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Serenata</h3>
+                            <p>Ci ritroviamo la sera prima della cerimonia presso la Casa della Sposa per la classica
+                                serenata pre-matrimonio. A seguire un piccolo aperitivo preparato dalla Marisa.</p><br>
+                            <p>📍 <a href="#luogo-serenata" class="program-location-link">
+                                    Casa della Sposa</a></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">7/12 - h10:30</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Cerimonia Religiosa</h3>
+                            <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Mi raccomando,
+                                Padre Milton non ama i ritardatari!</p><br>
+                            <p>📍 <a href="#luogo-cerimonia" class="program-location-link">
+                                    Cattedrale Madonna del Ponte</a></p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">7/12 - h13:00</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>Pranzo e Festeggiamenti</h3>
+                            <p>La festa proseguirà con parenti e amici in una location "Country Chic", sobria ed
+                                elegante immersa nel verde delle colline teatine. Cibo, buon vino e musica fino a notte
+                                fonda!</p><br>
+                            <p>📍 <a href="#luogo-ricevimento" class="program-location-link">
+                                    La Chiave Bianca</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Venues Section -->
+    <section id="luoghi" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <h2 class="section-title bg-section-title">Luoghi</h2>
+                <p class="section-intro bg-section-intro">
+                    I luoghi che ospiteranno la nostra celebrazione nel cuore
+                    dell’Abruzzo.
+                </p>
+                <div class="venue-grid">
+                    <div class="venue-card" id="luogo-serenata"><img src="casasposa.jpg" alt="Casa della Sposa"
+                            class="venue-image">
+                        <h3>Serenata</h3>
+                        <p class="venue-name">Casa della Sposa</p>
+                        <p class="venue-address">Via Panoramica, 62<br>Lanciano (CH)</p><a
+                            href="https://www.google.com/maps/place/Via+Panoramica,+62,+66034+Lanciano+CH"
+                            target="_blank" class="venue-link">Vedi su Google Maps</a>
+                    </div>
+                    <div class="venue-card" id="luogo-cerimonia"><img src="cattedrale.jpg"
+                            alt="Cattedrale Madonna del Ponte" class="venue-image">
+                        <h3>Cerimonia</h3>
+                        <p class="venue-name">Cattedrale Madonna del Ponte</p>
+                        <p class="venue-address">Piazza del Plebiscito, 1<br>Lanciano (CH)</p><a
+                            href="https://maps.app.goo.gl/CgDszhp74ZagfSJb7" target="_blank" class="venue-link">Vedi su
+                            Google Maps</a>
+                    </div>
+                    <div class="venue-card" id="luogo-ricevimento"><img src="chiavebianca.jpg" alt="La Chiave Bianca"
+                            class="venue-image">
+                        <h3>Location</h3>
+                        <p class="venue-name">La Chiave Bianca</p>
+                        <p class="venue-address">Contrada Cerreto, s.n.c.<br>Miglianico (CH)</p><a
+                            href="https://maps.app.goo.gl/NipHFW3FoUbMkX2D9" target="_blank" class="venue-link">Vedi su
+                            Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Accommodation Section -->
+    <section id="pernottamento" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <h2 class="section-title bg-section-title">Dove dormire</h2>
+                <p class="section-intro bg-section-intro">
+                    Abbiamo selezionato alcune strutture comode vicino ai luoghi del matrimonio per rendere
+                    il vostro soggiorno più piacevole. In fase di prenotazione precisate che siete invitati del
+                    matrimonio di
+                    "Graziano e Anna".
+                </p>
+                <div class="accommodation-grid"><!-- B&B Un'altra vita -->
+                    <div class="accommodation-card">
+                        <h3>B&B Un'altra vita</h3>
+                        <p>Accogliente B&B nei dintorni di Miglianico a 9min da La Chiave Bianca.</p>
+                        <p class="accommodation-distance">📍 Ripa Teatina (CH)</p><a href="https://bbunaltravita.com/"
+                            target="_blank" class="accommodation-btn">Sito web</a><a
+                            href="https://www.google.com/maps/search/B%26B+Un%27altra+vita+Lanciano" target="_blank"
+                            class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
+                    </div><!-- B&B Il Dito e la Luna -->
+                    <div class="accommodation-card">
+                        <h3>Hotel Il Dito e la Luna</h3>
+                        <p>Hotel caratteristico, con ambienti curati e comodi collegamenti verso Miglianico.</p>
+                        <p class="accommodation-distance">📍 Ripa Teatina (CH)</p><a
+                            href="http://www.hotelilditoelaluna.com/" target="_blank" class="accommodation-btn">Sito
+                            web</a><a href="https://www.google.com/maps/search/B%26B+Il+Dito+e+la+Luna+Lanciano"
+                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
+                    </div><!-- Hotel Villa Medici -->
+                    <div class="accommodation-card">
+                        <h3>Hotel Villa Medici</h3>
+                        <p>Hotel 4 stelle con piscina, ristorante e SPA, situato in zona tranquilla tra Lanciano e la
+                            costa.</p>
+                        <p class="accommodation-distance">📍Rocca San Giovanni (CH)</p><a
+                            href="https://www.hotelvillamediciabruzzo.it/" target="_blank"
+                            class="accommodation-btn">Sito web</a><a href="https://maps.app.goo.gl/7Qx6L4Y9Zu1NZAL29"
+                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
+                    </div><!-- Hotel La Chiave dei Trabocchi -->
+                    <div class="accommodation-card">
+                        <h3>Hotel La Chiave dei Trabocchi</h3>
+                        <p>Struttura moderna sulla Costa dei Trabocchi, con splendida vista mare e servizi completi.</p>
+                        <p class="accommodation-distance">📍 Zona Costa dei Trabocchi</p><a
+                            href="https://www.lachiavedeitrabocchi.it/" target="_blank" class="accommodation-btn">Sito
+                            web</a><a href="https://www.google.com/maps/search/Hotel+La+Chiave+dei+Trabocchi"
+                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
+                    </div><!-- Hotel L'altra Chiave -->
+                    <div class="accommodation-card">
+                        <h3>Hotel L'altra Chiave</h3>
+                        <p>Hotel di nuova concezione nei pressi di Lanciano, comodo punto di appoggio per la cerimonia
+                            e il
+                            ricevimento.</p>
+                        <p class="accommodation-distance">📍 Zona Lanciano / Dintorni</p><a
+                            href="https://www.laltrachiave.it/" target="_blank" class="accommodation-btn">Sito web</a><a
+                            href="https://www.google.com/maps/search/Hotel+L%27altra+Chiave" target="_blank"
+                            class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- RSVP Section -->
+    <section id="rsvp" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <h2 class="section-title bg-section-title">Conferma la tua presenza</h2>
+                <p class="section-intro bg-section-intro">
+                    Per favore conferma la tua presenza entro il 31 ottobre 2026. La tua risposta ci
+                    aiuterà a organizzare al meglio questo giorno speciale.
+                </p>
+                <div class="rsvp-container">
+                    <p class="rsvp-text">
+                        Per confermare la tua presenza, ti chiediamo di compilare il nostro modulo online. Ci
+                        vorranno solo pochi minuti e ci aiuterai a organizzare al meglio questo giorno speciale.
+                    </p><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScf7X5mLWsiIm0L_ch21AjCg0spXbCmZkp86ZkCzzTx0Ofkng/viewform"
+                        target="_blank" class="rsvp-btn">
+                        Compila il form RSVP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!-- Love Story Section -->
+    <section id="storia" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <h2 class="section-title bg-section-title">Il viaggio continua</h2>
+                <!--<p class="section-intro bg-section-intro">
+                    Il viaggio che ci ha portato fino a questo momento speciale.
+                </p>-->
+                <div class="story-image-top"><img src="japan.jpg"></div><div class="story-content">
+                    <div class="story-column">
+                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due motori trainanti
+                             nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e catostrofi naturali, covid, e 
+                             guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici e che ci facessero sentire, 
+                             ovunque, a casa.
+                        </p>
+                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di tutto 
+                            per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili, frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette, ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
+                        </p>
+                    </div>
+                    <div class="story-column">
+                        <p>Qualora non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette, vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
+                        <p class="story-highlight"
+                            style="margin-top: 30px; padding: 20px; background: var(--color-secondary); border-left: 4px solid var(--color-accent); border-radius: 8px; font-style: italic;">
+                            E quale migliore occasione per coronare questo sogno e recarci in Giappone per immergirgi nella loro colutura se non il viaggio di nozze? Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate sotto i dettagli bancari:<br>ITXASJ138798797000000090279B</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Photos Section -->
+    <section id="foto" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <div class="photos-content">
+                    <h2 class="section-title bg-section-title">Ricordi in immagini</h2>
+                    <p class="section-intro bg-section-intro">
+                        Prima, durante e dopo il matrimonio condivideremo qui le foto della giornata su Google Photos.
+                        Potrete rivivere con noi i momenti più belli e scaricare i vostri ricordi preferiti.
+                    </p><a href="https://photos.app.goo.gl/awZd1zz9jyntpFAb8" target="_blank" class="photos-btn">
+                        Vai all'album
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section><!-- WedGames Section -->
+    <section id="wedgames" class="bg-section wedgames-section">
+        <div class="bg-section-inner wedgames-inner"><!-- Coriandoli -->
+            <div class="confetti confetti-1"></div>
+            <div class="confetti confetti-2"></div>
+            <div class="confetti confetti-3"></div><!-- Fontane luminose stilizzate -->
+            <div class="fountain fountain-left"><span></span><span></span><span></span></div>
+            <div class="fountain fountain-right"><span></span><span></span><span></span></div>
+            <div class="bg-section-box wedgames-box">
+                <h2 class="section-title bg-section-title">WedGames!</h2>
+                <p class="section-intro bg-section-intro">
+                    Una piccola sorpresa per voi: giochi, indovinelli e sfide leggere per divertirci insieme
+                    durante il matrimonio. Pronti a giocare?
+                </p><a href="wedgames.html" class="wedgames-btn">
+                    Vai ai WedGames!
+                </a>
+            </div>
+        </div>
+    </section><!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">Con amore, Graziano e Anna</p>
+        <p class="footer-date">7 dicembre 2026</p>
+        <p class="footer-date" id="countdown"></p>
+    </footer>
+    <script>
+        // Mobile hamburger menu
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+
+            // Chiudi il menu quando clicchi una voce
+            navMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.nav-bar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Countdown
+        const weddingDate = new Date('2026-12-07');
+        const countdown = document.getElementById('countdown');
+        setInterval(() => {
+            const now = new Date();
+            const diff = weddingDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            countdown.innerText = days + ' giorni al matrimonio';
+        }, 1000);
+    </script>
+</body>
+
+</html>

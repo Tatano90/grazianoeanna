@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WedGames - Graziano e Anna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
+        rel="stylesheet">
+    <style>
+        /* PROTEZIONE TESTO / NO PAROLE SPEZZATE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li,
+        span,
+        div,
+        strong {
+            hyphens: none;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            word-break: normal;
+        }
+
+        :root {
+            --color-primary:  #7C2a36; /*#571443; #d4a5a5; */
+            --color-secondary: #f5e6d3;
+            --color-accent: #7C2a36; /*#571443; #d4a5a5; */
+            --color-text: #2c2c2c;
+            --color-text-light: #666;
+            --color-white: #ffffff;
+            --color-cream: #faf8f5;            
+        }
+
+        @font-face {
+            font-family: 'FlorilaneCardillac';
+            src: url('FlorilaneCardillac.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* DESKTOP/TABLET: sfondo laterale side.png come index.html */
+            background-image:
+                url("side.png"),
+                url("side.png");
+            background-repeat: repeat-y, repeat-y;
+            background-position: left center, right center;
+            background-size: 120px auto, 120px auto;
+        }
+
+        /* NAVBAR – ALLINEATA A index.html */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-primary);
+        }
+
+        /* HAMBURGER (MOBILE) */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            margin-left: auto;
+        }
+
+        .nav-toggle-line {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--color-text);
+            margin: 4px 0;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .nav-menu.open {
+            display: flex !important;
+        }
+
+        /* HERO WEDGAMES – STILE COERENTE CON index.html */
+        .hero-wedgames {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                linear-gradient(135deg, rgba(250, 248, 245, 0.85), rgba(245, 230, 211, 0.9)),
+                url("home.jpg") center center / cover no-repeat;
+            padding: 110px 30px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-size: 82px;
+            font-weight: 300;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            color: var(--color-text-light);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--color-accent);
+            margin: 20px auto;
+        }
+
+        /* LAYOUT SEZIONI GIOCHI */
+        section {
+            padding: 80px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bg-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bg-section-inner {
+            background: linear-gradient(to bottom,
+                    rgba(250, 248, 245, 0.95),
+                    rgba(245, 230, 211, 0.85),
+                    rgba(245, 230, 211, 0.0));
+            width: 100%;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .game-card {
+            background: var(--color-white);
+            border-radius: 14px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+            border-top: 4px solid var(--color-primary);
+        }
+
+        /* TITOLI SEZIONI – COERENTI CON index.html */
+        .section-title {
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-size: 62px;
+            font-weight: 400;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+        }
+
+        .game-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 600;
+            /* leggermente meno del titolo di sezione, ma ben marcato */
+            color: var(--color-accent);
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .game-tagline {
+            font-size: 14px;
+            color: var(--color-accent);
+            margin-bottom: 14px;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .game-text {
+            font-size: 15px;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .game-list {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+
+        .game-list li {
+            margin-bottom: 6px;
+        }
+
+        .game-highlight {
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-left: 3px solid var(--color-accent);
+            background: var(--color-cream);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        .game-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(212, 165, 165, 0.08);
+            color: var(--color-primary);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* PULSANTI GIOCO */
+        .game-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 26px;
+            background: var(--color-secondary);
+            color: var(--color-accent);
+            text-decoration: none;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .game-btn:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+            transform: translateY(-1px);
+        }
+
+        /* REGOLE ESPANDIBILI */
+        .rules-toggle {
+            margin-top: 18px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--color-accent);
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0;
+        }
+
+        .rules-toggle-icon {
+            display: inline-block;
+            transition: transform 0.2s ease;
+            font-size: 16px;
+        }
+
+        .rules-toggle.open .rules-toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .rules-panel {
+            margin-top: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: #faf8f5;
+            border: 1px solid rgba(201, 168, 106, 0.35);
+            font-size: 14px;
+            color: var(--color-text-light);
+            display: none;
+        }
+
+        .rules-panel h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .rules-panel ul {
+            margin-left: 18px;
+        }
+
+        .rules-panel ul li {
+            margin-bottom: 4px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--color-text);
+            color: var(--color-white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .footer-date {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            body {
+                /* come index.html: back.jpg meno zoom, senza side.png */
+                background-image: url("back.jpg");
+                background-repeat: repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                background-size: 150% auto;
+                background-color: var(--color-white);
+            }
+
+            .nav-container {
+                padding: 0 16px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                list-style: none;
+                padding: 10px 0 12px;
+                margin: 0;
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 20px;
+                border-top: 1px solid #f0f0f0;
+                font-size: 15px;
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .hero-wedgames {
+                min-height: auto;
+                padding: 100px 20px 40px;
+                background-position: center top;
+                background-size: cover;
+            }
+
+            .hero-title {
+                font-size: 32px;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 60px 20px;
+                max-width: 100%;
+            }
+
+            .bg-section-inner {
+                padding: 32px 20px;
+                border-radius: 12px;
+            }
+
+            .game-card {
+                padding: 24px 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-intro {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .game-title {
+                font-size: 22px;
+            }
+
+            .game-text,
+            .game-list,
+            .game-highlight {
+                font-size: 14px;
+            }
+
+            .footer {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 600px),
+        (max-height: 500px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body><!-- NAVBAR -->
+    <nav class="nav-bar">
+        <div class="nav-container"><a href="index.html#home" class="nav-logo">G &
+                A</a><!-- Bottone hamburger (mobile) --><button class="nav-toggle" aria-label="Apri menù"><span
+                    class="nav-toggle-line"></span><span class="nav-toggle-line"></span><span
+                    class="nav-toggle-line"></span></button><!-- Menu principale -->
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Torna alla Home</a></li>
+                <li><a href="#crazyfoto">CrazyFotoContest</a></li>
+                <li><a href="#cacciatesoro">Caccia al Tesoro</a></li>
+                <li><a href="#wedtinder">WedTinder</a></li>
+            </ul>
+        </div>
+    </nav><!-- HERO WEDGAMES -->
+    <header class="hero-wedgames">
+        <div class="hero-content">
+            <h1 class="hero-title">WedGames!</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Giochi e piccole sfide per rendere il matrimonio ancora più nostro.</p>
+            <p class="hero-text">
+                Abbiamo preparato qualche gioco per coinvolgervi durante il grande giorno.
+                Nessuna gara vera e propria, solo un modo divertente per collezionare ricordi insieme.
+            </p>
+        </div>
+    </header><!-- SEZIONE 1: CrazyFotoContest -->
+    <section id="crazyfoto" class="bg-section">
+        <div class="bg-section-inner">
+            <h2 class="section-title">CrazyFotoContest</h2>
+            <p class="section-intro">
+                Un piccolo contest fotografico per catturare i momenti più spontanei e divertenti della giornata.
+            </p>
+            <div class="game-card">
+                <div class="game-tag">Gioco 1</div>
+                <p class="game-title">Come funziona</h2>
+                <p class="game-tagline">
+                    Durante la giornata scatta le "CrazyFoto" in lista e caricale sull'album fotografico del matrimonio.
+                </p>
+                <ul class="game-list">
+                    <li>Scatta la foto.</li>
+                    <li>Carica le foto sull'album fotografico online.</li>
+                </ul>
+                <p class="game-highlight">
+                    Tip: per uno svolgimento sobrio e non invasivo del gioco, non intrometterti tra i fotografi; resta
+                    in
+                    disparte e cattura i momenti come solo Fabrizio Corona avrebbe potuto fare!
+                </p><!-- Regole espandibili - CrazyFotoContest --><button class="rules-toggle"
+                    data-target="#rules-quiz"><span class="rules-toggle-icon">▶</span><span>Mostra le regole del
+                        gioco</span></button>
+                <div class="rules-panel" id="rules-quiz">
+                    <h3>Regole del CrazyFotoContest</h3>
+                    <ul>
+                        <li>Fai un selfie di gruppo al tuo tavolo.</li>
+                        <li>Scatta una foto alla sala dalla balconata.</li>
+                        <li>Scatta una foto di nascosto mentre gli sposi stanno mangiando.</li>
+                        <li>Scatta una foto ai fotografi che fanno una foto agli sposi.</li>
+                        <li>Scatta una foto al padre dello sposo e al padre della sposa insieme.</li>
+                        <li>Scatta una foto alla madre dello sposo e alla madre della sposa insieme.</li>
+                        <li>Scatta una foto allo sposo senza giacca.</li>
+                        <li>Scatta una foto al più giovane e al più anziano della festa, insieme.</li>
+                        <li>Fai una foto allo sposo che suona.</li>
+                        <li>Fai una foto a JackRambo durante il djset.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!-- SEZIONE 2: Caccia al Tesoro -->
+    <section id="cacciatesoro" class="bg-section">
+        <div class="bg-section-inner">
+            <h2 class="section-title">Caccia al Tesoro</h2>
+            <p class="section-intro">
+                Una caccia al tesoro tra indizi, persone e luoghi della location. Riuscirai a trovare il premio
+                nascosto?
+            </p>
+            <div class="game-card">
+                <div class="game-tag">Gioco 2</div>
+                <!-- <h3 class="game-title">Come funziona</h3> -->
+                <p class="game-tagline">
+                    Risolvi i misteri, scopri chi nasconde i vari indizi e trova il tesoro nascosto.
+                </p>
+                <ul class="game-list">
+                    <li>Trova gli indizi che ti porteranno al tesoro nascosto.</li>
+                    <li>Parla con le persone giuste e scopri chi nasconde il prossimo indizio.</li>
+                </ul>
+                <p class="game-highlight">
+                    Tip: non è una gara di velocità. Goditi la giornata, risolvi gli indizi e condividi le scoperte con
+                    il tuo gruppo… spesso le sorprese (o i tesori) escono fuori a fine serata!
+                </p><!-- Regole espandibili - Caccia al Tesoro --><button class="rules-toggle"
+                    data-target="#rules-caccia"><span class="rules-toggle-icon">▶</span><span>Mostra le regole del
+                        gioco</span></button>
+                <div class="rules-panel" id="rules-caccia">
+                    <h3>Regole della Caccia al Tesoro</h3>
+                    <ul>
+                        <li>Si parte da un primo indizio che trovate qui sotto.</li>
+                        <li>Ogni indizio vi porterà da una persona diversa che consegnerà l'indizio successivo; l'ultimo
+                            indizio rivelerà il luogo in cui è nascosto il tesoro.</li>
+                        <li>Puoi giocare da solo oppure condividere gli indizi con chi vuoi.</li>
+                        <li>Se riuscirai a trovarlo potrai portare a casa il tesoro da te trovato!</li>
+                        <div style="font-weight: bold; font-style: italic; margin-top: 8px;">
+                            <p>Indizio 1:</p>
+                            <p>
+                                Nel 2009 dall'Abruzzo e Basilicata i nostri sposi sono partiti. Lei per Milano,
+                                lui per Pisa
+                                con i cuori di speranza e gioia riempiti. Con la valigia in mano hanno preso l'autobus e
+                                il
+                                treno per andare, ma con chi sono andati ad abitare?
+                            </p>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!-- SEZIONE 3: WedTinder -->
+    <section id="wedtinder" class="bg-section">
+        <div class="bg-section-inner">
+            <h2 class="section-title">WedTinder</h2>
+            <p class="section-intro">
+                Un gioco leggero per single (e non solo) che hanno voglia di conoscersi, chiacchierare e magari
+                creare nuovi legami.
+            </p>
+            <div class="game-card">
+                <div class="game-tag">Gioco 3</div>
+                <!-- <h3 class="game-title">Come funziona</h3> -->
+                <p class="game-tagline">L'amore dà, l'amore DAJEEEEEEEEEEEEEEEEEEEE!</p>
+                <p class="game-text">
+                    Sei single? Vuoi metterti in gioco? Pensi che dall'amore possa nascere altro amore?
+                </p>
+                <ul class="game-list">
+                    <li>Accedi al form qui sotto e partecipa al dating game del matrimonio!
+                    </li>
+                    <li>Durante la giornata gli ospiti potranno accedere alla lista dei giocatori e “matchare” la loro
+                        anima gemella!</li>
+                </ul>
+                <p class="game-highlight">
+                    Tip: pensalo come un modo divertente per conoscere gli altri invitati e farsi due risate e magari trovare la tua anima gemella.
+                </p><!-- Pulsante Google Form WedTinder -->
+                <div style="margin-top: 18px; text-align: center;"><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSficM3BH3Nj1nk1y9ps75UUjEyt2MBsMqW2A9aH1ag0oc1bTw/viewform"
+                        target="_blank" class="game-btn">
+                        Compila il form WedTinder
+                    </a></div>
+            </div>
+        </div>
+    </section><!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-text">WedGames! di Graziano e Anna</p>
+        <p class="footer-date">7 dicembre 2026</p>
+    </footer>
+    <script>
+        // Mobile hamburger menu
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+
+            // Chiudi il menu quando clicchi una voce
+            navMenu.querySelectorAll('a[href^="#"], a[href^="index.html"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
+
+        // Smooth scroll per link interni della pagina WedGames
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.nav-bar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Toggle regole gioco
+        document.querySelectorAll('.rules-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetSelector = button.getAttribute('data-target');
+                const panel = document.querySelector(targetSelector);
+                if (!panel) return;
+
+                const isOpen = panel.style.display === 'block';
+                panel.style.display = isOpen ? 'none' : 'block';
+                button.classList.toggle('open', !isOpen);
+
+                const textSpan = button.querySelector('span:last-child');
+                if (textSpan) {
+                    textSpan.textContent = isOpen
+                        ? 'Mostra le regole del gioco'
+                        : 'Nascondi le regole del gioco';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
