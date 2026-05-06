@@ -35,6 +35,67 @@
             word-break: normal;
         }
 
+        /* blocco contenitore dell'IBAN */
+        .copy-block {
+            margin-bottom: 0px;
+            /* meno spazio rispetto prima */
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1px;
+            /* piccolo spazio tra IBAN e spunta */
+        }
+
+        /* stile IBAN coerente con il resto del testo */
+        .copy-text {
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-thickness: inherit;
+            text-underline-offset: inherit;
+
+            font-style: italic;
+            /* come il resto del testo */
+            font-family: inherit;
+            /* stessa font del paragrafo */
+            font-size: inherit;
+            /* stessa dimensione del paragrafo */
+            color: var(--color-text-light);
+            /* stesso colore del paragrafo */
+        }
+
+        /* niente cambio colore improvviso al passaggio del mouse, solo leggero accento se vuoi */
+        .copy-text:hover {
+            color: var(--color-accent);
+        }
+
+        /* spunta nascosta di default */
+        .copy-check {
+            display: none;
+            font-size: 1rem;
+        }
+
+        /* quando è stato copiato mostra la spunta */
+        .copy-block.copied .copy-check {
+            display: inline;
+        }
+
+        .copy-btn {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+            /* dimensione icona */
+            line-height: 1;
+            padding: 4px 6px;
+            color: var(--color-accent);
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(0, 0, 0, 0.04);
+            transform: translateY(-1px);
+        }
+
         @font-face {
             font-family: 'FlorilaneCardillac';
             src: url('FlorilaneCardillac.ttf') format('truetype');
@@ -44,9 +105,11 @@
         }
 
         :root {
-            --color-primary:  #7C2a36; /*#571443; #d4a5a5; */
+            --color-primary: #7C2a36;
+            /*#571443; #d4a5a5; */
             --color-secondary: #f5e6d3;
-            --color-accent: #7C2a36; /*571443; #c9a86a; */
+            --color-accent: #7C2a36;
+            /*571443; #c9a86a; */
             --color-text: #2c2c2c;
             --color-text-light: #666;
             --color-white: #ffffff;
@@ -92,7 +155,7 @@
         .nav-logo {
             font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
             font-size: 34px;
-            font-weight:600;
+            font-weight: 600;
             color: var(--color-primary);
             text-decoration: none;
         }
@@ -161,7 +224,7 @@
         }
 
         .hero-title {
-            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
             font-size: 82px;
             font-weight: 300;
             color: var(--color-primary);
@@ -178,14 +241,14 @@
         }
 
         .hero-date {
-            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
             font-size: 40px;
             color: var(--color-text);
             margin-bottom: 10px;
         }
 
         .hero-location {
-            font-family: 'FlorilaneCardillac','Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
             font-size: 40px;
             color: var(--color-accent);
             margin-bottom: 40px;
@@ -323,8 +386,8 @@
 
         .timeline-content h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            color: var(--color-text);
+            font-size: 20px;
+            color: var(--color-primary);
             margin-bottom: 8px;
         }
 
@@ -369,7 +432,7 @@
 
         .venue-card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
+            font-size: 20px;
             color: var(--color-primary);
             margin-bottom: 20px;
             word-break: break-word;
@@ -440,8 +503,8 @@
 
         .accommodation-card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            color: var(--color-text);
+            font-size: 20px;
+            color: var(--color-primary);
             margin-bottom: 12px;
             word-break: break-word;
         }
@@ -532,22 +595,28 @@
         }*/
 
         .story-image-top {
-            max-width: 1000px;          /* allineata alla larghezza del testo */
-            margin: 40px auto 30px;    /* spazio sopra e sotto */
+            max-width: 1000px;
+            /* allineata alla larghezza del testo */
+            margin: 40px auto 30px;
+            /* spazio sopra e sotto */
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-            height: 200px;                 /* altezza del “ritaglio” – regola a gusto */
+            height: 200px;
+            /* altezza del “ritaglio” – regola a gusto */
         }
 
         .story-image-top img {
             width: 100%;
-            height: 100%;                  /* riempi il contenitore in altezza */
-            object-fit: cover;             /* taglia mantenendo proporzioni */
-            object-position: center 30%;/* puoi spostare il focus: top / 30% 50% ecc. */
+            height: 100%;
+            /* riempi il contenitore in altezza */
+            object-fit: cover;
+            /* taglia mantenendo proporzioni */
+            object-position: center 30%;
+            /* puoi spostare il focus: top / 30% 50% ecc. */
             display: block;
         }
-        
+
         /* Love Story */
         .story-content {
             display: grid;
@@ -558,7 +627,8 @@
 
         .story-column {
             min-width: 0;
-            background: rgba(255, 255, 255, 0.60); /* bianco semi-trasparente */
+            background: rgba(255, 255, 255, 0.60);
+            /* bianco semi-trasparente */
             border-radius: 12px;
             padding: 25px 30px;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
@@ -571,12 +641,15 @@
             }
 
             .story-image-top {
-                height: 100px;              /* più bassa su mobile */
-                margin: 10px auto 10px;     /* un po’ meno spazio */
+                height: 100px;
+                /* più bassa su mobile */
+                margin: 10px auto 10px;
+                /* un po’ meno spazio */
             }
 
             .story-image-top img {
-                object-position: center top; /* se vuoi “spostare” il focus verso l’alto */
+                object-position: center top;
+                /* se vuoi “spostare” il focus verso l’alto */
             }
         }
 
@@ -595,6 +668,15 @@
             line-height: 1;
             margin-right: 8px;
             margin-top: 5px;
+        }
+
+        .story-column p.copy-text:first-child::first-letter {
+            float: none;
+            font-size: inherit;
+            font-family: inherit;
+            color: inherit;
+            margin-right: 0;
+            margin-top: 0;
         }
 
         /* Photos Section */
@@ -848,7 +930,7 @@
             }
 
             .venue-card h3 {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .accommodation-card h3 {
@@ -1269,22 +1351,39 @@
                 <!--<p class="section-intro bg-section-intro">
                     Il viaggio che ci ha portato fino a questo momento speciale.
                 </p>-->
-                <div class="story-image-top"><img src="japan.jpg"></div><div class="story-content">
+                <div class="story-image-top"><img src="japan.jpg"></div>
+                <div class="story-content">
                     <div class="story-column">
-                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due motori trainanti
-                             nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e catostrofi naturali, covid, e 
-                             guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici e che ci facessero sentire, 
-                             ovunque, a casa.
+                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due
+                            motori trainanti
+                            nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e
+                            catostrofi naturali, covid, e
+                            guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici
+                            e che ci facessero sentire, ovunque, a casa.
                         </p>
-                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di tutto 
-                            per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili, frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette, ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
+                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di
+                            tutto
+                            per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili,
+                            frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette,
+                            ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
                         </p>
                     </div>
                     <div class="story-column">
-                        <p>Qualora non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette, vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
-                        <p class="story-highlight"
-                            style="margin-top: 30px; padding: 20px; background: var(--color-secondary); border-left: 4px solid var(--color-accent); border-radius: 8px; font-style: italic;">
-                            E quale migliore occasione per coronare questo sogno e recarci in Giappone per immergirgi nella loro colutura se non il viaggio di nozze? Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate sotto i dettagli bancari:<br>ITXASJ138798797000000090279B</p>
+                        <p>Se non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette,
+                            vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri
+                            sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
+                        <!-- <div class="story-highlight"
+                        style="margin-top: 30px; padding: 20px; background: var(--color-secondary); border-left: 4px solid var(--color-accent); border-radius: 8px; font-style: italic;"><p></p>-->
+                        <p>
+                            E quale migliore occasione, se non il viaggio di nozze, per coronare questo sogno e
+                            approdare finalmente in Giappone per immergirgi nella loro colutura?
+                            Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate qui
+                            sotto le nostre coordinate bancarie:
+                        <div class="copy-block"><span class="copy-text" data-copy="ITXASJ138798797000000090279B">
+                                ITXASJ138798797000000090279B
+                            </span><span class="copy-check" aria-hidden="true">✅</span>
+                        </div>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1372,6 +1471,32 @@
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             countdown.innerText = days + ' giorni al matrimonio';
         }, 1000);
+
+        // Copy Text
+        document.querySelectorAll('.copy-block').forEach(block => {
+            const textEl = block.querySelector('.copy-text');
+            const textToCopy = textEl.getAttribute('data-copy') || textEl.innerText.trim();
+
+            textEl.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                } catch (err) {
+                    // fallback per browser vecchi
+                    const textarea = document.createElement('textarea');
+                    textarea.value = textToCopy;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+
+                // mostra la spunta per un po'
+                block.classList.add('copied');
+                setTimeout(() => {
+                    block.classList.remove('copied');
+                }, 1500);
+            });
+        });
     </script>
 </body>
 
