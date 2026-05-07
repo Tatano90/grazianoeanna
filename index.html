@@ -117,7 +117,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
             color: var(--color-text);
             background-color: var(--color-white);
             line-height: 1.6;
@@ -153,7 +153,8 @@
         }
 
         .nav-logo {
-            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 34px;
             font-weight: 600;
             color: var(--color-primary);
@@ -224,7 +225,8 @@
         }
 
         .hero-title {
-            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 82px;
             font-weight: 300;
             color: var(--color-primary);
@@ -233,7 +235,7 @@
         }
 
         .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 32px;
             font-weight: 400;
             color: var(--color-text);
@@ -241,14 +243,16 @@
         }
 
         .hero-date {
-            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 40px;
             color: var(--color-text);
             margin-bottom: 10px;
         }
 
         .hero-location {
-            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 40px;
             color: var(--color-accent);
             margin-bottom: 40px;
@@ -283,7 +287,7 @@
 
         /* Section Styles (desktop / base) */
         section {
-            padding: 80px 30px;
+            padding: 40px 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -293,7 +297,8 @@
         }
 
         .section-title {
-            font-family: 'FlorilaneCardillac', 'Cormorant Garamond', serif;
+            font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 62px;
             font-weight: 400;
             color: var(--color-primary);
@@ -307,6 +312,57 @@
             max-width: 700px;
             margin: 0 auto 50px;
             font-size: 16px;
+        }
+
+        /* wrapper del blocco espandibile */
+        .section-details {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* barra cliccabile della sezione (sostituisce l'h2 visivo) */
+        .section-summary {
+            font-family: 'FlorilaneCardillac';
+            /* o il font titolo che usi ora */
+            font-size: 62px;
+            font-weight: 400;
+            color: var(--color-primary);
+            text-align: center;
+           /* padding: 12px 18px; */
+            margin-bottom: 15px;
+            cursor: pointer;
+            list-style: none;
+            background: rgba(255, 255, 255, 0);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* rimuove il triangolino standard */
+        .section-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* icona + / − a destra del titolo */
+        .section-summary::before {
+            content: "+";
+            font-family: 'FlorilaneCardillac';
+            /* o il font titolo che usi ora */
+            font-size: 62px;
+            font-weight: 400;
+            color: var(--color-primary);
+        }
+
+        /* quando il blocco è aperto, mostra il meno */
+        .section-details[open]>.section-summary::before {
+            content: "−";
+        }
+
+        .bg-section {
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         /* Timeline */
@@ -346,7 +402,8 @@
             flex: 1;
             text-align: right;
             padding-right: 50px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 24px;
             font-weight: 500;
             color: var(--color-accent);
@@ -385,7 +442,8 @@
         }
 
         .timeline-content h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 20px;
             color: var(--color-primary);
             margin-bottom: 8px;
@@ -431,7 +489,8 @@
         }
 
         .venue-card h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 20px;
             color: var(--color-primary);
             margin-bottom: 20px;
@@ -502,7 +561,8 @@
         }
 
         .accommodation-card h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
             font-size: 20px;
             color: var(--color-primary);
             margin-bottom: 12px;
@@ -662,7 +722,8 @@
 
         .story-column p:first-child::first-letter {
             font-size: 48px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
             color: var(--color-primary);
             float: left;
             line-height: 1;
@@ -714,14 +775,29 @@
         }
 
         .footer-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
+            font-size: 16px;
             margin-bottom: 10px;
         }
 
         .footer-date {
             color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
+        }
+
+        .bg-section-inner {
+            /*background: linear-gradient(to bottom,
+                    rgba(250, 248, 245, 0.85),
+                    rgba(245, 230, 211, 0.75),
+                    rgba(245, 230, 211, 0.0)); */
+            /* niente height fissa */
+            /* niente min-height enorme */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 60px 20px;
         }
 
         /* --- MOBILE: body con back.jpg al 150% + gradiente per ogni sezione --- */
@@ -734,6 +810,11 @@
                 background-attachment: fixed;
                 background-size: 150% auto;
                 background-color: var(--color-white);
+            }
+
+            section {
+                padding: 30px 20px;
+                max-width: 100%;
             }
 
             .nav-container {
@@ -823,6 +904,10 @@
                 font-size: 36px;
             }
 
+            .section-summary {
+            font-size: 32px;
+            }
+
             .section-intro {
                 font-size: 14px;
                 padding: 0 8px;
@@ -837,22 +922,29 @@
             }
 
             .bg-section-inner {
-                /* Velo in gradiente dall'alto verso il basso, semi-trasparente */
-                background: linear-gradient(to bottom,
-                        rgba(250, 248, 245, 0.85),
-                        rgba(245, 230, 211, 0.75),
-                        rgba(245, 230, 211, 0.0));
-                width: 100%;
-                min-height: 520px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding: 60px 20px;
+                /* ancora: niente min-height */
+                padding: 40px 16px;
             }
 
             .bg-section-box {
                 background: var(--color-white);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-box-alt {
+                background: var(--color-cream);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-box-trans {
                 border-radius: 12px;
                 padding: 20px;
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
@@ -962,6 +1054,10 @@
         @media (max-width: 600px),
         (max-height: 500px) {
 
+            section {
+                padding: 24px 16px;
+            }
+
             .venue-grid,
             .accommodation-grid,
             .story-content {
@@ -982,8 +1078,7 @@
             }
 
             .bg-section-inner {
-                min-height: 500px;
-                padding: 50px 16px;
+                padding: 32px 14px;
             }
         }
 
@@ -999,8 +1094,34 @@
 
         .wedgames-box {
             position: relative;
-            z-index: 2;
+            z-index: 1; /* la card resta sotto gli effetti */
             text-align: center;
+        }
+
+        /* Coriandoli: davanti alla card */
+        .confetti {
+            position: absolute;
+            top: -40px;
+            width: 12px;
+            height: 18px;
+            background: #ffd27f;
+            border-radius: 2px;
+            animation: confetti-fall 4s linear infinite;
+            opacity: 0.9;
+            z-index: 5; /* PRIMO PIANO */
+        }
+
+        /* Fontane: davanti alla card */
+        .fountain {
+            position: absolute;
+            bottom: 0;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 5; /* PRIMO PIANO */
+            pointer-events: none;
         }
 
         .wedgames-btn {
@@ -1024,18 +1145,6 @@
         }
 
         /* Coriandoli */
-        .confetti {
-            position: absolute;
-            top: -40px;
-            width: 12px;
-            height: 18px;
-            background: #ffd27f;
-            border-radius: 2px;
-            animation: confetti-fall 4s linear infinite;
-            opacity: 0.9;
-            z-index: 1;
-        }
-
         .confetti-1 {
             left: 10%;
             background: #ffd27f;
@@ -1071,18 +1180,7 @@
         }
 
         /* Fontane luminose stilizzate */
-        .fountain {
-            position: absolute;
-            bottom: 0;
-            width: 120px;
-            height: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            z-index: 1;
-            pointer-events: none;
-        }
-
+        
         .fountain-left {
             left: 5%;
         }
@@ -1167,10 +1265,10 @@
                 <li><a href="#programma">Programma</a></li>
                 <li><a href="#luoghi">Luoghi</a></li>
                 <li><a href="#pernottamento">Dove dormire</a></li>
-                <li><a href="#rsvp">RSVP</a></li>
                 <li><a href="#storia">Il viaggio continua</a></li>
-                <li><a href="#foto">Foto</a></li>
                 <li><a href="#wedgames">WedGames!</a></li>
+                <li><a href="#foto">Foto</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
             </ul>
         </div>
     </nav><!-- Hero Section -->
@@ -1185,53 +1283,63 @@
     <section id="programma" class="bg-section">
         <div class="bg-section-inner">
             <div class="bg-section-box">
-                <h2 class="section-title bg-section-title">Programma del Matrimonio</h2>
-                <p class="section-intro bg-section-intro">
-                    Un giorno speciale che vogliamo condividere con voi. Ecco il programma degli eventi!
-                </p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-time">06/12 - h18:30</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Serenata</h3>
-                            <p>Ci ritroviamo la sera prima della cerimonia presso la Casa della Sposa per la classica
-                                serenata pre-matrimonio. A seguire un piccolo aperitivo preparato dalla Marisa.</p><br>
-                            <p>📍 <a href="#luogo-serenata" class="program-location-link">
-                                    Casa della Sposa</a></p>
+                <details class="section-details">
+                    <summary class="section-summary">
+                        Programma del Matrimonio
+                    </summary>
+                    <p class="section-intro bg-section-intro">
+                        Un giorno speciale che vogliamo condividere con voi. Ecco il programma degli eventi!
+                    </p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">06/12 - h18:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Serenata</h3>
+                                <p>Ci ritroviamo la sera prima della cerimonia presso la Casa della Sposa per la
+                                    classica
+                                    serenata pre-matrimonio. A seguire un piccolo aperitivo preparato dalla Marisa.</p>
+                                <br>
+                                <p>📍 <a href="#luogo-serenata" class="program-location-link">
+                                        Casa della Sposa</a></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">7/12 - h10:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Cerimonia Religiosa</h3>
+                                <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Mi
+                                    raccomando,
+                                    Padre Milton non ama i ritardatari!</p><br>
+                                <p>📍 <a href="#luogo-cerimonia" class="program-location-link">
+                                        Cattedrale Madonna del Ponte</a></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">7/12 - h13:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Pranzo e Festeggiamenti</h3>
+                                <p>La festa proseguirà con parenti e amici in una location "Country Chic", sobria ed
+                                    elegante immersa nel verde delle colline teatine. Cibo, buon vino e musica fino a
+                                    notte
+                                    fonda!</p><br>
+                                <p>📍 <a href="#luogo-ricevimento" class="program-location-link">
+                                        La Chiave Bianca</a></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">7/12 - h10:30</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Cerimonia Religiosa</h3>
-                            <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Mi raccomando,
-                                Padre Milton non ama i ritardatari!</p><br>
-                            <p>📍 <a href="#luogo-cerimonia" class="program-location-link">
-                                    Cattedrale Madonna del Ponte</a></p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">7/12 - h13:00</div>
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Pranzo e Festeggiamenti</h3>
-                            <p>La festa proseguirà con parenti e amici in una location "Country Chic", sobria ed
-                                elegante immersa nel verde delle colline teatine. Cibo, buon vino e musica fino a notte
-                                fonda!</p><br>
-                            <p>📍 <a href="#luogo-ricevimento" class="program-location-link">
-                                    La Chiave Bianca</a></p>
-                        </div>
-                    </div>
-                </div>
+                </details>
             </div>
         </div>
-    </section><!-- Venues Section -->
+    </section>
+    <!-- Venues Section -->
     <section id="luoghi" class="section-alt bg-section">
         <div class="bg-section-inner">
-            <div class="bg-section-box">
-                <h2 class="section-title bg-section-title">Luoghi</h2>
+            <div class="bg-section-box-alt">
+                <details class="section-details">
+                <summary class="section-summary">Luoghi</summary>
                 <p class="section-intro bg-section-intro">
                     I luoghi che ospiteranno la nostra celebrazione nel cuore
                     dell’Abruzzo.
@@ -1262,13 +1370,15 @@
                             Google Maps</a>
                     </div>
                 </div>
+                </details>
             </div>
         </div>
     </section><!-- Accommodation Section -->
     <section id="pernottamento" class="bg-section">
         <div class="bg-section-inner">
             <div class="bg-section-box">
-                <h2 class="section-title bg-section-title">Dove dormire</h2>
+               <details class="section-details">
+                <summary class="section-summary">Dove dormire</summary>
                 <p class="section-intro bg-section-intro">
                     Abbiamo selezionato alcune strutture comode vicino ai luoghi del matrimonio per rendere
                     il vostro soggiorno più piacevole. In fase di prenotazione precisate che siete invitati del
@@ -1320,34 +1430,15 @@
                             class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section><!-- RSVP Section -->
-    <section id="rsvp" class="section-alt bg-section">
-        <div class="bg-section-inner">
-            <div class="bg-section-box">
-                <h2 class="section-title bg-section-title">Conferma la tua presenza</h2>
-                <p class="section-intro bg-section-intro">
-                    Per favore conferma la tua presenza entro il 31 ottobre 2026. La tua risposta ci
-                    aiuterà a organizzare al meglio questo giorno speciale.
-                </p>
-                <div class="rsvp-container">
-                    <p class="rsvp-text">
-                        Per confermare la tua presenza, ti chiediamo di compilare il nostro modulo online. Ci
-                        vorranno solo pochi minuti e ci aiuterai a organizzare al meglio questo giorno speciale.
-                    </p><a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScf7X5mLWsiIm0L_ch21AjCg0spXbCmZkp86ZkCzzTx0Ofkng/viewform"
-                        target="_blank" class="rsvp-btn">
-                        Compila il form RSVP
-                    </a>
-                </div>
+                </details>
             </div>
         </div>
     </section><!-- Love Story Section -->
     <section id="storia" class="bg-section">
         <div class="bg-section-inner">
-            <div class="bg-section-box">
-                <h2 class="section-title bg-section-title">Il viaggio continua</h2>
+            <div class="bg-section-box-trans">
+                <details class="section-details">
+                <summary class="section-summary">Il viaggio continua...</summary>
                 <!--<p class="section-intro bg-section-intro">
                     Il viaggio che ci ha portato fino a questo momento speciale.
                 </p>-->
@@ -1386,21 +1477,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section><!-- Photos Section -->
-    <section id="foto" class="section-alt bg-section">
-        <div class="bg-section-inner">
-            <div class="bg-section-box">
-                <div class="photos-content">
-                    <h2 class="section-title bg-section-title">Ricordi in immagini</h2>
-                    <p class="section-intro bg-section-intro">
-                        Prima, durante e dopo il matrimonio condivideremo qui le foto della giornata su Google Photos.
-                        Potrete rivivere con noi i momenti più belli e scaricare i vostri ricordi preferiti.
-                    </p><a href="https://photos.app.goo.gl/awZd1zz9jyntpFAb8" target="_blank" class="photos-btn">
-                        Vai all'album
-                    </a>
-                </div>
+                </details>
             </div>
         </div>
     </section><!-- WedGames Section -->
@@ -1412,16 +1489,56 @@
             <div class="fountain fountain-left"><span></span><span></span><span></span></div>
             <div class="fountain fountain-right"><span></span><span></span><span></span></div>
             <div class="bg-section-box wedgames-box">
-                <h2 class="section-title bg-section-title">WedGames!</h2>
+                <details class="section-details">
+                <summary class="section-summary">WedGames!</summary>
                 <p class="section-intro bg-section-intro">
                     Una piccola sorpresa per voi: giochi, indovinelli e sfide leggere per divertirci insieme
                     durante il matrimonio. Pronti a giocare?
                 </p><a href="wedgames.html" class="wedgames-btn">
                     Vai ai WedGames!
                 </a>
+                </details>
             </div>
         </div>
-    </section><!-- Footer -->
+    </section><!-- Photos Section -->
+    <section id="foto" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <div class="photos-content">
+                    <details class="section-details">
+                    <summary class="section-summary">Ricordi in immagini</summary>
+                    <p class="section-intro bg-section-intro">
+                        Prima, durante e dopo il matrimonio condivideremo qui le foto della giornata su Google Photos.
+                        Potrete rivivere con noi i momenti più belli e scaricare i vostri ricordi preferiti.
+                    </p><a href="https://photos.app.goo.gl/awZd1zz9jyntpFAb8" target="_blank" class="photos-btn">
+                        Vai all'album
+                    </a>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- RSVP Section -->
+    <section id="rsvp" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <details class="section-details">
+                <summary class="section-summary">Conferma la tua presenza</summary>
+                <div class="rsvp-container">
+                    <p class="rsvp-text">
+                        Per confermare la tua presenza, ti chiediamo di compilare il nostro modulo online. Ci
+                        vorranno solo pochi minuti e ci aiuterai a organizzare al meglio questo giorno speciale.
+                    </p><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScf7X5mLWsiIm0L_ch21AjCg0spXbCmZkp86ZkCzzTx0Ofkng/viewform"
+                        target="_blank" class="rsvp-btn">
+                        Compila il form RSVP
+                    </a>
+                </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
     <footer class="footer">
         <p class="footer-text">Con amore, Graziano e Anna</p>
         <p class="footer-date">7 dicembre 2026</p>
@@ -1497,7 +1614,38 @@
                 }, 1500);
             });
         });
-    </script>
+        // Apertura automatica sezione "Luoghi" + scroll al luogo corretto
+            document.querySelectorAll('.program-location-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');  // es: "#luogo-serenata"
+                    const targetCard = document.querySelector(targetId);
+                    const luoghiSection = document.querySelector('#luoghi');
+                    const luoghiDetails = luoghiSection
+                        ? luoghiSection.querySelector('details.section-details')
+                        : null;
+
+                    // 1) Apri il blocco Luoghi se è chiuso
+                    if (luoghiDetails && !luoghiDetails.open) {
+                        luoghiDetails.open = true;
+                    }
+
+                    // 2) Scrolla fino alla card corretta, tenendo conto della navbar fissa
+                    if (targetCard) {
+                        const navHeight = document.querySelector('.nav-bar').offsetHeight || 0;
+                        const rect = targetCard.getBoundingClientRect();
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const targetPosition = rect.top + scrollTop - navHeight - 20; // piccolo margine
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>
