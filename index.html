@@ -35,6 +35,18 @@
             word-break: normal;
         }
 
+         :root {
+            --color-primary: #7c2a36;
+            /*#571443; #d4a5a5; */
+            --color-secondary: #f5e6d3;
+            --color-accent: #7C2a36;
+            /*571443; #c9a86a; */
+            --color-text: #2c2c2c;
+            --color-text-light: #666;
+            --color-white: #ffffff;
+            --color-cream: #faf8f5;
+        }
+
         /* blocco contenitore dell'IBAN */
         .copy-block {
             margin-bottom: 0px;
@@ -104,25 +116,13 @@
             font-display: swap;
         }
 
-        :root {
-            --color-primary: #7c2a36;
-            /*#571443; #d4a5a5; */
-            --color-secondary: #f5e6d3;
-            --color-accent: #7C2a36;
-            /*571443; #c9a86a; */
-            --color-text: #2c2c2c;
-            --color-text-light: #666;
-            --color-white: #ffffff;
-            --color-cream: #faf8f5;
-        }
-
         body {
             font-family: Georgia, 'Times New Roman', Times, serif;
             color: var(--color-text);
             background-color: var(--color-white);
             line-height: 1.6;
             overflow-x: hidden;
-            /* DESKTOP/TABLET: solo sfondo laterale side.png */
+            /* DESKTOP/TABLET: solo sfondo laterale side.png *//* DESKTOP/TABLET: solo sfondo laterale side.png */
             background-image:
                 url("side.png"),
                 url("side.png");
@@ -154,7 +154,6 @@
 
         .nav-logo {
             font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
-            ;
             font-size: 34px;
             font-weight: 600;
             color: var(--color-primary);
@@ -226,7 +225,6 @@
 
         .hero-title {
             font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
-            ;
             font-size: 82px;
             font-weight: 300;
             color: var(--color-primary);
@@ -298,7 +296,6 @@
 
         .section-title {
             font-family: 'FlorilaneCardillac', Georgia, 'Times New Roman', Times, serif;
-            ;
             font-size: 62px;
             font-weight: 400;
             color: var(--color-primary);
@@ -320,9 +317,29 @@
             overflow: hidden;
         }
 
-        /* barra cliccabile della sezione (sostituisce l'h2 visivo) */
+        
+        .bg-section {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .bg-section-inner {
+            /*background: linear-gradient(to bottom,
+                    rgba(250, 248, 245, 0.85),
+                    rgba(245, 230, 211, 0.75),
+                    rgba(245, 230, 211, 0.0)); */
+            /* niente height fissa */
+            /* niente min-height enorme */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 60px 20px;
+        }
+        
         .section-summary {
             font-family: 'FlorilaneCardillac';
+            min-width: 300px;
             /* o il font titolo che usi ora */
             font-size: 62px;
             font-weight: 400;
@@ -333,21 +350,21 @@
             cursor: pointer;
             list-style: none;
             background: rgba(255, 255, 255, 0);
-            border-radius: 10px;
+            /*border-radius: 10px; */
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 8px; 
         }
 
         /* rimuove il triangolino standard */
         .section-summary::-webkit-details-marker {
-            display: none;
+           display: none; 
         }
 
         /* icona + / − a destra del titolo */
         .section-summary::before {
-            content: "+";
+            content: "";
             font-family: 'FlorilaneCardillac';
             /* o il font titolo che usi ora */
             font-size: 62px;
@@ -357,12 +374,7 @@
 
         /* quando il blocco è aperto, mostra il meno */
         .section-details[open]>.section-summary::before {
-            content: "−";
-        }
-
-        .bg-section {
-            padding-top: 15px;
-            padding-bottom: 15px;
+            content: "";
         }
 
         /* Timeline */
@@ -403,7 +415,6 @@
             text-align: right;
             padding-right: 50px;
             font-family: Georgia, 'Times New Roman', Times, serif;
-            ;
             font-size: 24px;
             font-weight: 500;
             color: var(--color-accent);
@@ -607,10 +618,11 @@
         }
 
         .rsvp-text {
+            font-family: Georgia, 'Times New Roman', Times, serif;
             color: var(--color-text-light);
-            font-size: 16px;
-            line-height: 1.8;
             margin-bottom: 35px;
+            font-size: 14px;
+            padding: 0 8px;
         }
 
         .rsvp-btn {
@@ -620,7 +632,7 @@
             color: var(--color-white);
             text-decoration: none;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
@@ -632,10 +644,9 @@
             box-shadow: 0 6px 20px rgba(201, 168, 106, 0.4);
         }
 
-        #storia {
+        #storia.storia-open {
             position: relative;
             overflow: hidden;
-            /* leggero overlay per non perdere leggibilità del testo */
             background-image:
                 linear-gradient(to bottom, rgba(250, 248, 245, 0.80), rgba(245, 230, 211, 0.80)),
                 url("japan.jpg");
@@ -643,16 +654,6 @@
             background-position: center center;
             background-repeat: no-repeat;
         }
-
-        /*#storia {
-            position: relative;
-            overflow: hidden;
-            background-image:
-                url("japan.jpg");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }*/
 
         .story-image-top {
             max-width: 1000px;
@@ -786,19 +787,7 @@
             font-size: 14px;
         }
 
-        .bg-section-inner {
-            /*background: linear-gradient(to bottom,
-                    rgba(250, 248, 245, 0.85),
-                    rgba(245, 230, 211, 0.75),
-                    rgba(245, 230, 211, 0.0)); */
-            /* niente height fissa */
-            /* niente min-height enorme */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 60px 20px;
-        }
+        
 
         /* --- MOBILE: body con back.jpg al 150% + gradiente per ogni sezione --- */
         @media (max-width: 768px) {
@@ -905,7 +894,11 @@
             }
 
             .section-summary {
-            font-size: 32px;
+                font-size: 32px;
+            }
+
+            .section-summary::before {
+                font-size: 28px;
             }
 
             .section-intro {
@@ -937,14 +930,6 @@
 
             .bg-section-box-alt {
                 background: var(--color-cream);
-                border-radius: 12px;
-                padding: 20px;
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-                max-width: 720px;
-                width: 100%;
-            }
-
-            .bg-section-box-trans {
                 border-radius: 12px;
                 padding: 20px;
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
@@ -1279,7 +1264,8 @@
             <p class="hero-date">Lunedì 7 dicembre 2026</p>
             <p class="hero-location">Lanciano (CH)</p><a href="#programma" class="hero-btn">Scopri i dettagli</a>
         </div>
-    </section><!-- Schedule Section -->
+    </section>
+    <!-- Schedule Section -->
     <section id="programma" class="bg-section">
         <div class="bg-section-inner">
             <div class="bg-section-box">
@@ -1350,21 +1336,19 @@
                         <p class="venue-name">Casa della Sposa</p>
                         <p class="venue-address">Via Panoramica, 62<br>Lanciano (CH)</p><a
                             href="https://www.google.com/maps/place/Via+Panoramica,+62,+66034+Lanciano+CH"
-                            target="_blank" class="venue-link">Vedi su Google Maps</a>
+                            target="_blank" class="venue-link">Google Maps</a>
                     </div>
                     <div class="venue-card" id="luogo-cerimonia"><img src="cattedrale.jpg"
                             alt="Cattedrale Madonna del Ponte" class="venue-image">
                         <p class="venue-name">Cattedrale Madonna del Ponte</p>
                         <p class="venue-address">Piazza del Plebiscito, 1<br>Lanciano (CH)</p><a
-                            href="https://maps.app.goo.gl/CgDszhp74ZagfSJb7" target="_blank" class="venue-link">Vedi su
-                            Google Maps</a>
+                            href="https://maps.app.goo.gl/CgDszhp74ZagfSJb7" target="_blank" class="venue-link">Google Maps</a>
                     </div>
                     <div class="venue-card" id="luogo-ricevimento"><img src="chiavebianca.jpg" alt="La Chiave Bianca"
                             class="venue-image">
                         <p class="venue-name">La Chiave Bianca</p>
                         <p class="venue-address">Contrada Cerreto, s.n.c.<br>Miglianico (CH)</p><a
-                            href="https://maps.app.goo.gl/NipHFW3FoUbMkX2D9" target="_blank" class="venue-link">Vedi su
-                            Google Maps</a>
+                            href="https://maps.app.goo.gl/NipHFW3FoUbMkX2D9" target="_blank" class="venue-link">Google Maps</a>
                     </div>
                 </div>
                 </details>
@@ -1430,10 +1414,11 @@
                 </details>
             </div>
         </div>
-    </section><!-- Love Story Section -->
-    <section id="storia" class="bg-section">
+    </section>
+    <!-- Love Story Section -->
+    <section id="storia" class="section-alt bg-section">
         <div class="bg-section-inner">
-            <div class="bg-section-box-trans">
+            <div class="bg-section-box-alt">
                 <details class="section-details">
                 <summary class="section-summary">Il viaggio continua...</summary>
                 <!--<p class="section-intro bg-section-intro">
@@ -1501,7 +1486,7 @@
             <div class="bg-section-box-alt">
                 <div class="photos-content">
                     <details class="section-details">
-                    <summary class="section-summary">Ricordi in immagini</summary>
+                    <summary class="section-summary">Foto</summary>
                     <p class="section-intro bg-section-intro">
                         Prima, durante e dopo il matrimonio condivideremo qui le foto della giornata su Google Photos.
                         Potrete rivivere con noi i momenti più belli e scaricare i vostri ricordi preferiti.
@@ -1518,7 +1503,7 @@
         <div class="bg-section-inner">
             <div class="bg-section-box">
                 <details class="section-details">
-                <summary class="section-summary">Conferma la tua presenza</summary>
+                <summary class="section-summary">RSVP </summary>
                 <div class="rsvp-container">
                     <p class="rsvp-text">
                         Per confermare la tua presenza, ti chiediamo di compilare il nostro modulo online. Ci
@@ -1640,6 +1625,27 @@
                     }
                 });
             });
+
+            // Sfondo speciale per "Il viaggio continua..." solo quando aperto
+            const storiaSection = document.querySelector('#storia');
+            const storiaDetails = storiaSection
+                ? storiaSection.querySelector('details.section-details')
+                : null;
+
+            if (storiaSection && storiaDetails) {
+                // Imposta lo stato iniziale in base all'attributo open
+                if (storiaDetails.open) {
+                    storiaSection.classList.add('storia-open');
+                }
+
+                storiaDetails.addEventListener('toggle', () => {
+                    if (storiaDetails.open) {
+                        storiaSection.classList.add('storia-open');
+                    } else {
+                        storiaSection.classList.remove('storia-open');
+                    }
+                });
+            }
         </script>
 </body>
 
