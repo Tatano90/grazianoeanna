@@ -131,6 +131,60 @@
             background-size: 120px auto, 120px auto;
         }
 
+        .info-subsections {
+            margin-top: 24px;
+        }
+
+        /* Ogni sotto-sezione dentro Info Utili */
+        .info-subsection {
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            padding: 0 20px 8px;
+            background: var(--color-cream)
+        }
+
+        /* titolo (summary) delle sotto-sezioni */
+        .info-subsection-title {
+            font-family: 'FlorilaneCardillac';
+            font-size: 32px;
+            color: var(--color-primary);
+            text-align: center;
+            padding: 18px 0;
+            list-style: none;
+            cursor: pointer;
+            
+        }
+
+        /* rimuove il triangolino standard del summary */
+        .info-subsection-title::-webkit-details-marker {
+            display: none;
+        }
+
+        /* contenuto interno delle sotto-sezioni */
+        .info-subsection-content {
+            padding: 8px 0 16px;
+            color: var(--color-text-light);
+            font-size: 14px;
+            
+        }
+
+        /* testo introduttivo delle sotto-sezioni */
+        .info-subsection-intro {
+            margin-bottom: 16px;
+        }
+
+        /* lista puntata coerente con il resto del sito */
+        .info-list {
+            margin: 8px 0 16px 20px;
+            padding: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 6px;
+        }
+
         /* Navigation */
         .nav-bar {
             position: fixed;
@@ -549,15 +603,15 @@
             display: block;
         }
 
-        /* Accommodation Cards */
-        .accommodation-grid {
+        /* info Cards */
+        .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 50px;
         }
 
-        .accommodation-card {
+        .info-card {
             background: var(--color-white);
             border-radius: 10px;
             padding: 30px;
@@ -566,12 +620,12 @@
             min-width: 0;
         }
 
-        .accommodation-card:hover {
+        .info-card:hover {
             border-color: var(--color-primary);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .accommodation-card h3 {
+        .info-card h3 {
             font-family: Georgia, 'Times New Roman', Times, serif;
             ;
             font-size: 20px;
@@ -580,20 +634,20 @@
             word-break: break-word;
         }
 
-        .accommodation-card p {
+        .info-card p {
             color: var(--color-text-light);
             font-size: 14px;
             margin-bottom: 15px;
         }
 
-        .accommodation-distance {
+        .info-distance {
             color: var(--color-accent);
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 20px;
         }
 
-        .accommodation-btn {
+        .info-btn {
             display: inline-block;
             padding: 8px 20px;
             background: transparent;
@@ -605,7 +659,7 @@
             transition: all 0.3s ease;
         }
 
-        .accommodation-btn:hover {
+        .info-btn:hover {
             background: var(--color-primary);
             color: var(--color-white);
         }
@@ -711,6 +765,10 @@
             .story-image-top img {
                 object-position: center top;
                 /* se vuoi “spostare” il focus verso l’alto */
+            }
+
+            .info-subsection-title {
+                font-size: 24px;
             }
         }
 
@@ -995,14 +1053,14 @@
 
             /* Griglie dentro il box */
             .venue-grid,
-            .accommodation-grid,
+            .info-grid,
             .story-content {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
 
             .venue-card,
-            .accommodation-card {
+            .info-card {
                 padding: 22px;
             }
 
@@ -1010,11 +1068,11 @@
                 font-size: 20px;
             }
 
-            .accommodation-card h3 {
+            .info-card h3 {
                 font-size: 20px;
             }
 
-            .accommodation-card p,
+            .info-card p,
             .venue-address {
                 font-size: 14px;
             }
@@ -1044,7 +1102,7 @@
             }
 
             .venue-grid,
-            .accommodation-grid,
+            .info-grid,
             .story-content {
                 grid-template-columns: 1fr !important;
             }
@@ -1249,7 +1307,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#programma">Programma</a></li>
                 <li><a href="#luoghi">Luoghi</a></li>
-                <li><a href="#pernottamento">Dove dormire</a></li>
+                <li><a href="#info-utili">Info Utili</a></li>
                 <li><a href="#storia">Il viaggio continua</a></li>
                 <li><a href="#wedgames">WedGames!</a></li>
                 <li><a href="#foto">Foto</a></li>
@@ -1291,13 +1349,11 @@
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-time">7/12 - h10:30</div>
+                            <div class="timeline-time">7/12 - h11:00</div>
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h3>Cerimonia Religiosa</h3>
-                                <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Mi
-                                    raccomando,
-                                    Padre Milton non ama i ritardatari!</p><br>
+                                <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Per godersi al meglio la cerimonia consigliamo di arrivare con almeno 20 min di anticipo. Mi raccomando, Padre Milton non ama i ritardatari!</p><br>
                                 <p>📍 <a href="#luogo-cerimonia" class="program-location-link">
                                         Cattedrale Madonna del Ponte</a></p>
                             </div>
@@ -1354,67 +1410,54 @@
                 </details>
             </div>
         </div>
-    </section><!-- Accommodation Section -->
-    <section id="pernottamento" class="bg-section">
-        <div class="bg-section-inner">
-            <div class="bg-section-box">
-               <details class="section-details">
-                <summary class="section-summary">Dove dormire</summary>
-                <p class="section-intro bg-section-intro">
-                    Abbiamo selezionato alcune strutture comode vicino ai luoghi del matrimonio per rendere
-                    il vostro soggiorno più piacevole. In fase di prenotazione precisate che siete invitati del
-                    matrimonio di
-                    "Graziano e Anna".
-                </p>
-                <div class="accommodation-grid"><!-- B&B Un'altra vita -->
-                    <div class="accommodation-card">
-                        <h3>B&B Un'altra vita</h3>
-                        <p>Accogliente B&B nei dintorni di Miglianico a 9min da La Chiave Bianca.</p>
-                        <p class="accommodation-distance">📍 Ripa Teatina (CH)</p><a href="https://bbunaltravita.com/"
-                            target="_blank" class="accommodation-btn">Sito web</a><a
-                            href="https://www.google.com/maps/search/B%26B+Un%27altra+vita+Lanciano" target="_blank"
-                            class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
-                    </div><!-- B&B Il Dito e la Luna -->
-                    <div class="accommodation-card">
-                        <h3>Hotel Il Dito e la Luna</h3>
-                        <p>Hotel caratteristico, con ambienti curati e comodi collegamenti verso Miglianico.</p>
-                        <p class="accommodation-distance">📍 Ripa Teatina (CH)</p><a
-                            href="http://www.hotelilditoelaluna.com/" target="_blank" class="accommodation-btn">Sito
-                            web</a><a href="https://www.google.com/maps/search/B%26B+Il+Dito+e+la+Luna+Lanciano"
-                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
-                    </div><!-- Hotel Villa Medici -->
-                    <div class="accommodation-card">
-                        <h3>Hotel Villa Medici</h3>
-                        <p>Hotel 4 stelle con piscina, ristorante e SPA, situato in zona tranquilla tra Lanciano e la
-                            costa.</p>
-                        <p class="accommodation-distance">📍Rocca San Giovanni (CH)</p><a
-                            href="https://www.hotelvillamediciabruzzo.it/" target="_blank"
-                            class="accommodation-btn">Sito web</a><a href="https://maps.app.goo.gl/7Qx6L4Y9Zu1NZAL29"
-                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
-                    </div><!-- Hotel La Chiave dei Trabocchi -->
-                    <div class="accommodation-card">
-                        <h3>Hotel La Chiave dei Trabocchi</h3>
-                        <p>Struttura moderna sulla Costa dei Trabocchi, con splendida vista mare e servizi completi.</p>
-                        <p class="accommodation-distance">📍 Zona Costa dei Trabocchi</p><a
-                            href="https://www.lachiavedeitrabocchi.it/" target="_blank" class="accommodation-btn">Sito
-                            web</a><a href="https://www.google.com/maps/search/Hotel+La+Chiave+dei+Trabocchi"
-                            target="_blank" class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
-                    </div><!-- Hotel L'altra Chiave -->
-                    <div class="accommodation-card">
-                        <h3>Hotel L'altra Chiave</h3>
-                        <p>Hotel di nuova concezione nei pressi di Lanciano, comodo punto di appoggio per la cerimonia
-                            e il
-                            ricevimento.</p>
-                        <p class="accommodation-distance">📍 Zona Lanciano / Dintorni</p><a
-                            href="https://www.laltrachiave.it/" target="_blank" class="accommodation-btn">Sito web</a><a
-                            href="https://www.google.com/maps/search/Hotel+L%27altra+Chiave" target="_blank"
-                            class="accommodation-btn" style="margin-left:8px;">Google Maps</a>
-                    </div>
-                </div>
-                </details>
-            </div>
-        </div>
-    </section>
+    </section><!-- info Section -->
+    <section id="info-utili" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">Info Utili</summary><p class="section-intro bg-section-intro">
+                    Abbiamo raccolto alcune informazioni pratiche per aiutarvi ad organizzare al meglio
+                    il vostro weekend con noi.
+                </p><div class="info-subsections"><!-- COME ARRIVARE --><details class="info-subsection"><summary class="info-subsection-title">Come Arrivare</summary><div class="info-subsection-content"><p>
+                                La zona del matrimonio è facilmente raggiungibile in auto, treno e aereo.
+                                Qui alcune indicazioni pratiche per organizzare il viaggio.
+                            </p><ul class="info-list"><li><strong>In auto:</strong> uscita autostradale consigliata
+                                    (es. A14 Pescara Sud – Francavilla o Lanciano) e poi seguire le indicazioni
+                                    per Miglianico / Lanciano.
+                                </li><li><strong>In treno:</strong> stazioni utili: Pescara Centrale o Lanciano,
+                                    da cui è possibile proseguire in auto o taxi.
+                                </li><li><strong>In aereo:</strong> aeroporto d’Abruzzo (Pescara), con collegamenti
+                                    per diverse città italiane ed europee.
+                                </li></ul><p>
+                                Se vi serve una mano a coordinare gli arrivi o a organizzare eventuali passaggi,
+                                scriveteci e proveremo ad aiutarvi.
+                            </p></div></details><!-- ALLOGGI --><details class="info-subsection"><summary class="info-subsection-title">Alloggi</summary><div class="info-subsection-content"><p class="info-subsection-intro">
+                                Abbiamo selezionato alcune strutture comode vicino ai luoghi del matrimonio
+                                per rendere il vostro soggiorno più piacevole. In fase di prenotazione precisate che siete invitati del matrimonio di "Graziano e Anna".
+                            </p><div class="info-grid"><!-- B&B Un'altra vita --><div class="info-card"><h3>B&B Un'altra vita</h3><p>Accogliente B&B nei dintorni di Miglianico a 9min da La Chiave Bianca.</p><p class="info-distance">📍 Ripa Teatina (CH)</p><a href="https://bbunaltravita.com/" target="_blank" class="info-btn">Sito web</a><a href="https://www.google.com/maps/search/B%26B+Un%27altra+vita+Lanciano"
+                                       target="_blank" class="info-btn" style="margin-left:8px;">Google Maps</a></div><!-- Hotel Il Dito e la Luna --><div class="info-card"><h3>Hotel Il Dito e la Luna</h3><p>Hotel caratteristico, con ambienti curati e comodi collegamenti verso Miglianico.</p><p class="info-distance">📍 Ripa Teatina (CH)</p><a href="http://www.hotelilditoelaluna.com/" target="_blank" class="info-btn">Sito web</a><a href="https://www.google.com/maps/search/B%26B+Il+Dito+e+la+Luna+Lanciano"
+                                       target="_blank" class="info-btn" style="margin-left:8px;">Google Maps</a></div><!-- Hotel Villa Medici --><div class="info-card"><h3>Hotel Villa Medici</h3><p>
+                                        Hotel 4 stelle con piscina, ristorante e SPA, situato in zona tranquilla
+                                        tra Lanciano e la costa.
+                                    </p><p class="info-distance">📍 Rocca San Giovanni (CH)</p><a href="https://www.hotelvillamediciabruzzo.it/" target="_blank" class="info-btn">Sito web</a><a href="https://maps.app.goo.gl/7Qx6L4Y9Zu1NZAL29"
+                                       target="_blank" class="info-btn" style="margin-left:8px;">Google Maps</a></div><!-- Hotel La Chiave dei Trabocchi --><div class="info-card"><h3>Hotel La Chiave dei Trabocchi</h3><p>
+                                        Struttura moderna sulla Costa dei Trabocchi,
+                                        con splendida vista mare e servizi completi.
+                                    </p><p class="info-distance">📍 Zona Costa dei Trabocchi</p><a href="https://www.lachiavedeitrabocchi.it/" target="_blank" class="info-btn">Sito web</a><a href="https://www.google.com/maps/search/Hotel+La+Chiave+dei+Trabocchi"
+                                       target="_blank" class="info-btn" style="margin-left:8px;">Google Maps</a></div><!-- Hotel L'altra Chiave --><div class="info-card"><h3>Hotel L'altra Chiave</h3><p>
+                                        Hotel di nuova concezione nei pressi di Lanciano,
+                                        comodo punto di appoggio per la cerimonia e il ricevimento.
+                                    </p><p class="info-distance">📍 Zona Lanciano / Dintorni</p><a href="https://www.laltrachiave.it/" target="_blank" class="info-btn">Sito web</a><a href="https://www.google.com/maps/search/Hotel+L%27altra+Chiave"
+                                       target="_blank" class="info-btn" style="margin-left:8px;">Google Maps</a></div></div></div></details><!-- TRUCCO E PARRUCCO --><details class="info-subsection"><summary class="info-subsection-title">Trucco e Parrucco</summary><div class="info-subsection-content"><p>
+                                Se desiderate affidarvi a professionisti per trucco e acconciatura il giorno
+                                del matrimonio, possiamo suggerire alcuni contatti in zona o aiutarvi
+                                a coordinarvi con i saloni di fiducia.
+                            </p><ul class="info-list"><li>
+                                    Se avete esigenze particolari (allergie, prodotti specifici, acconciature
+                                    molto strutturate), avvisateci con un po’ di anticipo.
+                                </li><li>
+                                    Consigliamo di prenotare eventuali servizi in loco non troppo tardi:
+                                    nei weekend estivi la zona può essere molto richiesta.
+                                </li></ul><p>
+                                Per qualsiasi domanda pratica potete scriverci direttamente:
+                                saremo felici di supportarvi nell’organizzazione.
+                            </p></div></details></div><!-- /.info-subsections --></details></div></div></section>
     <!-- Love Story Section -->
     <section id="storia" class="section-alt bg-section">
         <div class="bg-section-inner">
@@ -1646,6 +1689,24 @@
                     }
                 });
             }
+
+                    document.addEventListener('DOMContentLoaded', function () {
+            // Selettore del blocco principale Info Utili
+            const infoUtiliDetails = document.querySelector('#info-utili .section-details');
+
+            if (infoUtiliDetails) {
+                infoUtiliDetails.addEventListener('toggle', function () {
+                    // Se Info Utili viene chiusa...
+                    if (!infoUtiliDetails.open) {
+                        // ...chiudi tutte le sotto-sezioni al suo interno
+                        const subDetails = infoUtiliDetails.querySelectorAll('.info-subsection');
+                        subDetails.forEach(d => {
+                            d.open = false;
+                        });
+                    }
+                });
+            }
+        });
         </script>
 </body>
 
