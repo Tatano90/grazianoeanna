@@ -386,6 +386,25 @@
 
         .game-btn {
             display: inline-block;
+            padding: 15px 40px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .game-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 168, 106, 0.4);
+        }
+
+        /*.game-btn {
+            display: inline-block;
             margin-top: 10px;
             padding: 10px 26px;
             background: var(--color-secondary);
@@ -401,7 +420,7 @@
             background: var(--color-accent);
             color: var(--color-white);
             transform: translateY(-1px);
-        }
+        } */
 
         /* PANNELLI REGOLE */
         .rules-panel {
@@ -731,8 +750,7 @@
                         WedTinder
                     </summary>
                     <p class="section-intro">
-                        Un gioco leggero per single (e non solo) che hanno voglia di conoscersi, chiacchierare e magari
-                        creare nuovi legami.
+                        Un gioco leggero per chi voglia di conoscersi, chiacchierare e creare nuovi legami.
                     </p>
                     <div class="game-card">
                         <div class="game-tag">WedTinder</div>
@@ -805,6 +823,31 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // prendi tutte le sezioni gioco (crazyfoto, wedtinder, ecc.)
+            const gameSections = document.querySelectorAll('section.bg-section');
+
+            gameSections.forEach(function (section) {
+                // per ciascuna, trova il details principale
+                const mainDetails = section.querySelector(':scope > .bg-section-inner .bg-section-box > details.section-details');
+
+                if (!mainDetails) return;
+
+                mainDetails.addEventListener('toggle', function () {
+                    // se la sezione principale viene chiusa...
+                    if (!mainDetails.open) {
+                        // ...chiudi tutti i <details> interni (regolamenti, sotto-regole, ecc.)
+                        const innerDetails = mainDetails.querySelectorAll('details');
+                        innerDetails.forEach(function (d) {
+                            if (d !== mainDetails) {
+                                d.open = false;
+                            }
+                        });
+                    }
+                });
             });
         });
     </script>

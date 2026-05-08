@@ -749,29 +749,6 @@
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
         }
 
-        /* opzionale: riduci un po’ il padding su mobile per non stringere troppo */
-        @media (max-width: 768px) {
-            .story-column {
-                padding: 20px 18px;
-            }
-
-            .story-image-top {
-                height: 100px;
-                /* più bassa su mobile */
-                margin: 10px auto 10px;
-                /* un po’ meno spazio */
-            }
-
-            .story-image-top img {
-                object-position: center top;
-                /* se vuoi “spostare” il focus verso l’alto */
-            }
-
-            .info-subsection-title {
-                font-size: 24px;
-            }
-        }
-
         .story-column p {
             margin-bottom: 25px;
             color: var(--color-text-light);
@@ -847,8 +824,187 @@
 
         
 
-        /* --- MOBILE: body con back.jpg al 150% + gradiente per ogni sezione --- */
+        /* WedGames Section */
+        .wedgames-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wedgames-inner {
+            position: relative;
+        }
+
+        .wedgames-box {
+            position: relative;
+            z-index: 1; /* la card resta sotto gli effetti */
+            text-align: center;
+        }
+
+        /* Coriandoli: davanti alla card */
+        .confetti {
+            position: absolute;
+            top: -40px;
+            width: 12px;
+            height: 18px;
+            background: #ffd27f;
+            border-radius: 2px;
+            animation: confetti-fall 4s linear infinite;
+            opacity: 0.9;
+            z-index: 5; /* PRIMO PIANO */
+        }
+
+        /* Fontane: davanti alla card */
+        .fountain {
+            position: absolute;
+            bottom: 0;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 5; /* PRIMO PIANO */
+            pointer-events: none;
+        }
+
+        .wedgames-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #ffb6c1, #ffd27f);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .wedgames-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+            opacity: 0.95;
+        }
+
+        /* Coriandoli */
+        .confetti-1 {
+            left: 10%;
+            background: #ffd27f;
+            animation-delay: 0s;
+        }
+
+        .confetti-2 {
+            left: 45%;
+            background: #ffb6c1;
+            animation-delay: 1s;
+        }
+
+        .confetti-3 {
+            left: 80%;
+            background: #c9a86a;
+            animation-delay: 2s;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Fontane luminose stilizzate */
+        
+        .fountain-left {
+            left: 5%;
+        }
+
+        .fountain-right {
+            right: 5%;
+        }
+
+        .fountain span {
+            display: block;
+            width: 6px;
+            height: 80px;
+            margin: 0 4px;
+            border-radius: 50px;
+            background: linear-gradient(to top, rgba(255, 215, 130, 0.1), rgba(255, 215, 130, 0.9));
+            animation: fountain-spark 1.6s ease-in-out infinite;
+        }
+
+        .fountain span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .fountain span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fountain-spark {
+            0% {
+                transform: translateY(0) scaleY(0.4);
+                opacity: 0.2;
+            }
+
+            40% {
+                transform: translateY(-20px) scaleY(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-60px) scaleY(0.3);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 768px) {
+            
+            .fountain-left {
+                left: 2%;
+            }
+
+            .fountain-right {
+                right: 2%;
+            }
+
+            .fountain {
+                width: 90px;
+                height: 120px;
+            }
+
+            .wedgames-btn {
+                width: 100%;
+                max-width: 260px;
+                font-size: 14px;
+                padding: 14px 24px;
+            }
+            
+            
+            .story-column {
+                padding: 20px 18px;
+            }
+
+            .story-image-top {
+                height: 100px;
+                /* più bassa su mobile */
+                margin: 10px auto 10px;
+                /* un po’ meno spazio */
+            }
+
+            .story-image-top img {
+                object-position: center top;
+                /* se vuoi “spostare” il focus verso l’alto */
+            }
+            
             body {
                 /* NIENTE side.png su mobile, solo back.jpg meno zoom (150%) */
                 background-image: url("back.jpg");
@@ -1125,171 +1281,6 @@
             }
         }
 
-        /* WedGames Section */
-        .wedgames-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .wedgames-inner {
-            position: relative;
-        }
-
-        .wedgames-box {
-            position: relative;
-            z-index: 1; /* la card resta sotto gli effetti */
-            text-align: center;
-        }
-
-        /* Coriandoli: davanti alla card */
-        .confetti {
-            position: absolute;
-            top: -40px;
-            width: 12px;
-            height: 18px;
-            background: #ffd27f;
-            border-radius: 2px;
-            animation: confetti-fall 4s linear infinite;
-            opacity: 0.9;
-            z-index: 5; /* PRIMO PIANO */
-        }
-
-        /* Fontane: davanti alla card */
-        .fountain {
-            position: absolute;
-            bottom: 0;
-            width: 120px;
-            height: 160px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            z-index: 5; /* PRIMO PIANO */
-            pointer-events: none;
-        }
-
-        .wedgames-btn {
-            display: inline-block;
-            padding: 16px 48px;
-            background: linear-gradient(135deg, #ffb6c1, #ffd27f);
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-        }
-
-        .wedgames-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
-            opacity: 0.95;
-        }
-
-        /* Coriandoli */
-        .confetti-1 {
-            left: 10%;
-            background: #ffd27f;
-            animation-delay: 0s;
-        }
-
-        .confetti-2 {
-            left: 45%;
-            background: #ffb6c1;
-            animation-delay: 1s;
-        }
-
-        .confetti-3 {
-            left: 80%;
-            background: #c9a86a;
-            animation-delay: 2s;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(500px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Fontane luminose stilizzate */
-        
-        .fountain-left {
-            left: 5%;
-        }
-
-        .fountain-right {
-            right: 5%;
-        }
-
-        .fountain span {
-            display: block;
-            width: 6px;
-            height: 80px;
-            margin: 0 4px;
-            border-radius: 50px;
-            background: linear-gradient(to top, rgba(255, 215, 130, 0.1), rgba(255, 215, 130, 0.9));
-            animation: fountain-spark 1.6s ease-in-out infinite;
-        }
-
-        .fountain span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .fountain span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes fountain-spark {
-            0% {
-                transform: translateY(0) scaleY(0.4);
-                opacity: 0.2;
-            }
-
-            40% {
-                transform: translateY(-20px) scaleY(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-60px) scaleY(0.3);
-                opacity: 0;
-            }
-        }
-
-        /* Mobile tweaks WedGames */
-        @media (max-width: 768px) {
-            .fountain-left {
-                left: 2%;
-            }
-
-            .fountain-right {
-                right: 2%;
-            }
-
-            .fountain {
-                width: 90px;
-                height: 120px;
-            }
-
-            .wedgames-btn {
-                width: 100%;
-                max-width: 260px;
-                font-size: 16px;
-                padding: 14px 24px;
-            }
-        }
-
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -1307,9 +1298,9 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#programma">Programma</a></li>
                 <li><a href="#luoghi">Luoghi</a></li>
-                <li><a href="#info-utili">Info Utili</a></li>
-                <li><a href="#storia">Il viaggio continua</a></li>
                 <li><a href="#wedgames">WedGames!</a></li>
+                <li><a href="#storia">Il viaggio continua</a></li>
+                <li><a href="#info-utili">Info Utili</a></li>
                 <li><a href="#foto">Foto</a></li>
                 <li><a href="#rsvp">RSVP</a></li>
             </ul>
@@ -1410,8 +1401,76 @@
                 </details>
             </div>
         </div>
-    </section><!-- info Section -->
-    <section id="info-utili" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">Info Utili</summary><p class="section-intro bg-section-intro">
+    </section>
+    <!-- WedGames Section -->
+    <section id="wedgames" class="bg-section wedgames-section">
+        <div class="bg-section-inner wedgames-inner"><!-- Coriandoli -->
+            <div class="confetti confetti-1"></div>
+            <div class="confetti confetti-2"></div>
+            <div class="confetti confetti-3"></div><!-- Fontane luminose stilizzate -->
+            <div class="fountain fountain-left"><span></span><span></span><span></span></div>
+            <div class="fountain fountain-right"><span></span><span></span><span></span></div>
+            <div class="bg-section-box wedgames-box">
+                <details class="section-details">
+                <summary class="section-summary">WedGames!</summary>
+                <p class="section-intro bg-section-intro">
+                    Una piccola sorpresa per voi: giochi, indovinelli e sfide leggere per divertirci insieme
+                    durante il matrimonio. Pronti a giocare?
+                </p><a href="wedgames.html" class="wedgames-btn">
+                    Vai ai WedGames!
+                </a>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- Il Viaggio Continua Section -->
+    <section id="storia" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <details class="section-details">
+                <summary class="section-summary">Il viaggio continua...</summary>
+                <!--<p class="section-intro bg-section-intro">
+                    Il viaggio che ci ha portato fino a questo momento speciale.
+                </p>-->
+                <div class="story-image-top"><img src="japan.jpg"></div>
+                <div class="story-content">
+                    <div class="story-column">
+                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due
+                            motori trainanti
+                            nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e
+                            catostrofi naturali, covid, e
+                            guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici
+                            e che ci facessero sentire, ovunque, a casa.
+                        </p>
+                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di
+                            tutto
+                            per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili,
+                            frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette,
+                            ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
+                        </p>
+                    </div>
+                    <div class="story-column">
+                        <p>Se non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette,
+                            vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri
+                            sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
+                        <p>
+                            E quale migliore occasione, se non il viaggio di nozze, per coronare questo sogno e
+                            approdare finalmente in Giappone per immergirgi nella loro colutura?
+                            Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate qui
+                            sotto le nostre coordinate bancarie:
+                        <div class="copy-block"><span class="copy-text" data-copy="ITXASJ138798797000000090279B">
+                                ITXASJ138798797000000090279B
+                            </span><span class="copy-check" aria-hidden="true">✅</span>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- info Section -->
+    <section id="info-utili" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details  class="section-details"><summary class="section-summary">Info Utili</summary><p class="section-intro bg-section-intro">
                     Abbiamo raccolto alcune informazioni pratiche per aiutarvi ad organizzare al meglio
                     il vostro weekend con noi.
                 </p><div class="info-subsections"><!-- COME ARRIVARE --><details class="info-subsection"><summary class="info-subsection-title">Come Arrivare</summary><div class="info-subsection-content"><p>
@@ -1458,72 +1517,8 @@
                                 Per qualsiasi domanda pratica potete scriverci direttamente:
                                 saremo felici di supportarvi nell’organizzazione.
                             </p></div></details></div><!-- /.info-subsections --></details></div></div></section>
-    <!-- Love Story Section -->
-    <section id="storia" class="section-alt bg-section">
-        <div class="bg-section-inner">
-            <div class="bg-section-box-alt">
-                <details class="section-details">
-                <summary class="section-summary">Il viaggio continua...</summary>
-                <!--<p class="section-intro bg-section-intro">
-                    Il viaggio che ci ha portato fino a questo momento speciale.
-                </p>-->
-                <div class="story-image-top"><img src="japan.jpg"></div>
-                <div class="story-content">
-                    <div class="story-column">
-                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due
-                            motori trainanti
-                            nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e
-                            catostrofi naturali, covid, e
-                            guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici
-                            e che ci facessero sentire, ovunque, a casa.
-                        </p>
-                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di
-                            tutto
-                            per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili,
-                            frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette,
-                            ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
-                        </p>
-                    </div>
-                    <div class="story-column">
-                        <p>Se non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette,
-                            vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri
-                            sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
-                        <p>
-                            E quale migliore occasione, se non il viaggio di nozze, per coronare questo sogno e
-                            approdare finalmente in Giappone per immergirgi nella loro colutura?
-                            Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate qui
-                            sotto le nostre coordinate bancarie:
-                        <div class="copy-block"><span class="copy-text" data-copy="ITXASJ138798797000000090279B">
-                                ITXASJ138798797000000090279B
-                            </span><span class="copy-check" aria-hidden="true">✅</span>
-                        </div>
-                        </p>
-                    </div>
-                </div>
-                </details>
-            </div>
-        </div>
-    </section><!-- WedGames Section -->
-    <section id="wedgames" class="bg-section wedgames-section">
-        <div class="bg-section-inner wedgames-inner"><!-- Coriandoli -->
-            <div class="confetti confetti-1"></div>
-            <div class="confetti confetti-2"></div>
-            <div class="confetti confetti-3"></div><!-- Fontane luminose stilizzate -->
-            <div class="fountain fountain-left"><span></span><span></span><span></span></div>
-            <div class="fountain fountain-right"><span></span><span></span><span></span></div>
-            <div class="bg-section-box wedgames-box">
-                <details class="section-details">
-                <summary class="section-summary">WedGames!</summary>
-                <p class="section-intro bg-section-intro">
-                    Una piccola sorpresa per voi: giochi, indovinelli e sfide leggere per divertirci insieme
-                    durante il matrimonio. Pronti a giocare?
-                </p><a href="wedgames.html" class="wedgames-btn">
-                    Vai ai WedGames!
-                </a>
-                </details>
-            </div>
-        </div>
-    </section><!-- Photos Section -->
+    
+    <!-- Photos Section -->
     <section id="foto" class="section-alt bg-section">
         <div class="bg-section-inner">
             <div class="bg-section-box-alt">
