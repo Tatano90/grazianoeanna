@@ -143,13 +143,13 @@
 
         /* Hero WedGames */
         .hero-wedgames {
-            min-height: 60vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background:
-                linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),
-                url("home.jpg") center center / cover no-repeat;
+                /*linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),*/
+                url("home.jpg") center center / cover no-repeat;padding: 100px 30px 60px;
             padding: 100px 30px 60px;
             text-align: center;
             position: relative;
@@ -169,6 +169,11 @@
             color: var(--color-primary);
             margin-bottom: 20px;
             letter-spacing: 2px;
+            background:
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;   
         }
 
         .hero-subtitle {
@@ -177,6 +182,11 @@
             font-weight: 500;
             color: var(--color-text);
             margin-bottom: 20px;
+            background:
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;
         }
 
         .hero-text {
@@ -184,6 +194,11 @@
             color: var(--color-text-light);
             max-width: 620px;
             margin: 0 auto;
+            background:
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;
         }
 
         .hero-divider {
@@ -234,7 +249,7 @@
         }
 
         .bg-section-inner {
-            background: transparent;
+            background: var(--color-white);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -243,26 +258,17 @@
         }
 
         .bg-section-inner-alt {
-            /*background: var(--color-cream);*/
+            background: var(--color-cream);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 32px 14px;
+            padding: 60px 20px;
         }
 
         /* box centrali, come sulla home */
         .bg-section-box {
-            background: var(--color-white);
-            border-radius: 12px;
-            padding: 20px;
-            /*box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);*/
-            max-width: 720px;
-            width: 100%;
-        }
-
-        .bg-section-box-alt {
-            background: var(--color-cream);
+            background: transparent;
             border-radius: 12px;
             padding: 20px;
             /*box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);*/
@@ -478,11 +484,11 @@
         @media (max-width: 768px) {
             body {
                 /* come index_GO.html: back.jpg, nessun side.png */
-                background-image: url("back.jpg");
+                background-image: url("back3.jpg");
                 background-repeat: repeat;
                 background-position: center top;
                 background-attachment: fixed;
-                background-size: 150% auto;
+                background-size: 120% auto;
                 background-color: var(--color-white);
             }
 
@@ -530,6 +536,7 @@
                 padding: 100px 20px 40px;
                 background-position: center top;
                 background-size: cover;
+                background: transparent;
             }
 
             .hero-title {
@@ -569,6 +576,30 @@
 
             .bg-section-inner {
                 padding: 32px 14px;
+                background: transparent;
+            }
+
+            .bg-section-box {
+                background: var(--color-white);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-box-alt {
+                background: var(--color-cream);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-inner-alt {
+                padding: 32px 14px;
+                background: transparent;
             }
 
             .section-intro {

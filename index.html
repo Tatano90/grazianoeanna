@@ -47,6 +47,7 @@
             --color-cream: #faf8f5;
         }
 
+
         /* blocco contenitore dell'IBAN */
         .copy-block {
             margin-bottom: 0px;
@@ -263,7 +264,7 @@
             align-items: center;
             justify-content: center;
             background:
-                linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),
+                /*linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),*/
                 url("home.jpg") center center / cover no-repeat;
             padding: 100px 30px 60px;
             text-align: center;
@@ -284,6 +285,11 @@
             color: var(--color-primary);
             margin-bottom: 20px;
             letter-spacing: 2px;
+            background:
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;            
         }
 
         .hero-subtitle {
@@ -299,6 +305,11 @@
             font-size: 40px;
             color: var(--color-text);
             margin-bottom: 10px;
+            background: 
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;
         }
 
         .hero-location {
@@ -308,6 +319,11 @@
             color: var(--color-accent);
             margin-bottom: 40px;
             font-weight: 500;
+            background: 
+            rgba(250, 248, 245, 0.75); 
+            /*rgba(245, 230, 211, 0.85);*/
+            border-radius: 50px;
+            padding: 10px 10px;
         }
 
         .hero-btn {
@@ -1004,15 +1020,22 @@
                 /* se vuoi “spostare” il focus verso l’alto */
             }
             
-            body {
-                /* NIENTE side.png su mobile, solo back.jpg meno zoom (150%) */
+            /* body {
                 background-image: url("back.jpg");
                 background-repeat: repeat;
                 background-position: center top;
                 background-attachment: fixed;
                 background-size: 150% auto;
                 background-color: var(--color-white);
-            }
+            } */
+              body {
+                background-image: url("back3.jpg");
+                background-repeat: repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                background-size: 120% auto;
+                background-color: var(--color-white);
+            } 
 
             section {
                 padding: 30px 20px;
@@ -1066,6 +1089,7 @@
                 padding: 100px 20px 60px;
                 background-position: center top;
                 background-size: cover;
+                background: transparent;
             }
 
             .hero-content {
