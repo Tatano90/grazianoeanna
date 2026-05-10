@@ -123,7 +123,6 @@
             background-color: var(--color-white);
             line-height: 1.6;
             overflow-x: hidden;
-            /* DESKTOP/TABLET: solo sfondo laterale side.png *//* DESKTOP/TABLET: solo sfondo laterale side.png */
             background-image:
                 url("side.png"),
                 url("side.png");
@@ -265,7 +264,7 @@
             justify-content: center;
             background:
                 /*linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),*/
-                url("home.jpg") center center / cover no-repeat;
+                url("home.jpg") center center / cover no-repeat;padding: 100px 30px 60px;
             padding: 100px 30px 60px;
             text-align: center;
             position: relative;
@@ -393,12 +392,6 @@
         }
 
         .bg-section-inner {
-            /*background: linear-gradient(to bottom,
-                    rgba(250, 248, 245, 0.85),
-                    rgba(245, 230, 211, 0.75),
-                    rgba(245, 230, 211, 0.0)); */
-            /* niente height fissa */
-            /* niente min-height enorme */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1028,12 +1021,14 @@
                 background-size: 150% auto;
                 background-color: var(--color-white);
             } */
-              body {
+              
+            body {
                 background-image: url("back3.jpg");
-                background-position: center top;
+                background-position: center center;
                 background-attachment: fixed;
                 background-size: 120% auto;
                 background-color: var(--color-white);
+                background-repeat: no-repeat;
             } 
 
             section {

@@ -61,7 +61,6 @@
             background-color: var(--color-white);
             line-height: 1.6;
             overflow-x: hidden;
-            /* DESKTOP/TABLET: solo sfondo laterale side.png */
             background-image:
                 url("side.png"),
                 url("side.png");
@@ -232,7 +231,7 @@
             text-align: center;
             color: var(--color-text-light);
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 50px;
             font-size: 16px;
         }
 
@@ -242,55 +241,38 @@
             overflow: hidden;
         }
 
+        
         .bg-section {
-            background: transparent;
             padding-top: 15px;
             padding-bottom: 15px;
         }
 
         .bg-section-inner {
-            background: var(--color-white);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             padding: 60px 20px;
-        }
-
-        .bg-section-inner-alt {
-            background: var(--color-cream);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 60px 20px;
-        }
-
-        /* box centrali, come sulla home */
-        .bg-section-box {
-            background: transparent;
-            border-radius: 12px;
-            padding: 20px;
-            /*box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);*/
-            max-width: 720px;
-            width: 100%;
         }
 
         .section-summary {
             font-family: 'FlorilaneCardillac';
             min-width: 300px;
+            /* o il font titolo che usi ora */
             font-size: 62px;
             font-weight: 400;
             color: var(--color-primary);
             text-align: center;
+           /* padding: 12px 18px; */
             margin-bottom: 15px;
             cursor: pointer;
             list-style: none;
             background: rgba(255, 255, 255, 0);
+            /*border-radius: 10px; */
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 8px; 
         }
 
         .section-summary-reg {
@@ -310,18 +292,20 @@
 
         /* rimuove il triangolino standard */
         .section-summary::-webkit-details-marker {
-            display: none;
+           display: none; 
         }
 
-        /* icona + / − (tenuta vuota per coerenza con index) */
+        /* icona + / − a destra del titolo */
         .section-summary::before {
             content: "";
             font-family: 'FlorilaneCardillac';
+            /* o il font titolo che usi ora */
             font-size: 62px;
             font-weight: 400;
             color: var(--color-primary);
         }
 
+        /* quando il blocco è aperto, mostra il meno */
         .section-details[open]>.section-summary::before {
             content: "";
         }
@@ -483,13 +467,14 @@
         /* MOBILE */
         @media (max-width: 768px) {
             body {
-                /* come index_GO.html: back.jpg, nessun side.png */
                 background-image: url("back3.jpg");
-                background-position: center top;
+                background-position: center center;
                 background-attachment: fixed;
                 background-size: 120% auto;
                 background-color: var(--color-white);
-            }
+                background-repeat: no-repeat;
+            } 
+
 
             .nav-container {
                 padding: 0 16px;
@@ -552,11 +537,14 @@
             }
 
             section {
-                padding: 60px 20px;
+                padding: 30px 20px;
                 max-width: 100%;
             }
 
-            
+            section {
+                padding: 60px 20px;
+                max-width: 100%;
+            }
 
             .section-summary {
                 font-size: 32px;
@@ -565,7 +553,7 @@
             .section-summary::before {
                 font-size: 28px;
             }
-
+            
             .bg-section {
                 max-width: 100vw;
                 width: 100vw;
@@ -574,8 +562,8 @@
             }
 
             .bg-section-inner {
-                padding: 32px 14px;
-                background: transparent;
+                /* ancora: niente min-height */
+                padding: 40px 16px;
             }
 
             .bg-section-box {
@@ -596,14 +584,25 @@
                 width: 100%;
             }
 
-            .bg-section-inner-alt {
-                padding: 32px 14px;
-                background: transparent;
-            }
-
             .section-intro {
                 font-size: 14px;
+                padding: 0 8px;
+            }
+
+             .bg-section-title {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .bg-section-intro {
+                text-align: center;
+                color: var(--color-text-light);
+                font-size: 14px;
                 margin-bottom: 24px;
+            }
+
+             .section-alt {
+                background: transparent;
             }
 
             .game-card {
@@ -717,8 +716,8 @@
             </div>
         </div>
     </section><!-- SEZIONE 2: Caccia al Tesoro -->
-    <section id="cacciatesoro" class="section-alt bg-section">
-        <div class="bg-section-inner-alt">
+    <section id="luoghi" class="section-alt bg-section">
+        <div class="bg-section-inner">
             <div class="bg-section-box-alt">
                 <details class="section-details">
                     <summary class="section-summary">
@@ -775,7 +774,7 @@
     <section id="wedtinder" class="bg-section">
         <div class="bg-section-inner">
             <div class="bg-section-box">
-                <details class="section-details">
+            <details class="section-details">
                     <summary class="section-summary">
                         WedTinder
                     </summary>
