@@ -108,7 +108,7 @@
         .nav-menu a {
             text-decoration: none;
             color: var(--color-text);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 400;
             transition: color 0.3s ease;
         }
@@ -803,6 +803,28 @@
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('open');
                 });
+            });
+        }
+
+        // Clic su logo o Home: chiude tutti i <details> (mobile + desktop)
+        function closeAllDetails() {
+            document.querySelectorAll('details').forEach(d => {
+                d.open = false;
+            });
+        }
+
+        const logoLink = document.querySelector('.nav-logo');
+        const homeLink = document.querySelector('.nav-menu a[href="#home"]');
+
+        if (logoLink) {
+            logoLink.addEventListener('click', () => {
+                closeAllDetails();
+            });
+        }
+
+        if (homeLink) {
+            homeLink.addEventListener('click', () => {
+                closeAllDetails();
             });
         }
 
