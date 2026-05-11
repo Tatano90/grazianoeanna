@@ -1,5 +1,13 @@
-<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WedGames! - Graziano e Anna</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
-        rel="stylesheet"><style>
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WedGames! - Graziano e Anna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
+        rel="stylesheet">
+    <style>
         /* MANDATORY RESPONSIVE TEXT PROTECTION */
         * {
             margin: 0;
@@ -53,9 +61,10 @@
             background-color: var(--color-white);
             line-height: 1.6;
             overflow-x: hidden;
+            /* DESKTOP/TABLET: solo sfondo laterale side.png */
             background-image:
-                url("side.png"),
-                url("side.png");
+                url("side3.png"),
+                url("side3.png");
             background-repeat: repeat-y, repeat-y;
             background-position: left center, right center;
             background-size: 120px auto, 120px auto;
@@ -138,13 +147,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+            /* linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(250, 248, 245, 0.75)), */
                 /*linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),*/
-                url("home.jpg") center center / cover no-repeat;padding: 100px 30px 60px;
+                url("home.jpg") center bottom / cover no-repeat;
             padding: 100px 30px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background-size: 100% auto;
         }
 
         .hero-content {
@@ -160,11 +171,6 @@
             color: var(--color-primary);
             margin-bottom: 20px;
             letter-spacing: 2px;
-            background:
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;   
         }
 
         .hero-subtitle {
@@ -172,24 +178,15 @@
             font-size: 22px;
             font-weight: 500;
             color: var(--color-text);
-            margin-bottom: 20px;
-            background:
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;
+            margin-bottom: 10px;
         }
 
         .hero-text {
             font-size: 16px;
             color: var(--color-text-light);
             max-width: 620px;
-            margin: 0 auto;
-            background:
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;
+            margin-bottom: 40px;
+            font-weight: 500;
         }
 
         .hero-divider {
@@ -233,7 +230,6 @@
             overflow: hidden;
         }
 
-        
         .bg-section {
             padding-top: 15px;
             padding-bottom: 15px;
@@ -284,20 +280,18 @@
 
         /* rimuove il triangolino standard */
         .section-summary::-webkit-details-marker {
-           display: none; 
+            display: none;
         }
 
-        /* icona + / − a destra del titolo */
+        /* icona + / − (tenuta vuota per coerenza con index) */
         .section-summary::before {
             content: "";
             font-family: 'FlorilaneCardillac';
-            /* o il font titolo che usi ora */
             font-size: 62px;
             font-weight: 400;
             color: var(--color-primary);
         }
 
-        /* quando il blocco è aperto, mostra il meno */
         .section-details[open]>.section-summary::before {
             content: "";
         }
@@ -368,21 +362,21 @@
 
         .game-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: var(--color-primary);
-            color: var(--color-white);
+            margin-top: 10px;
+            padding: 10px 26px;
+            background: var(--color-secondary);
+            color: var(--color-accent);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 24px;
             font-size: 14px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+            transition: all 0.2s ease;
         }
 
         .game-btn:hover {
             background: var(--color-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(201, 168, 106, 0.4);
+            color: var(--color-white);
+            transform: translateY(-1px);
         }
 
         /* PANNELLI REGOLE */
@@ -439,18 +433,13 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            html {
-                background-image: url("back3.jpg");
+            body {
+                background-image: url("back4.jpg");
+                background-repeat: repeat;
                 background-position: center top;
                 background-attachment: fixed;
-                background-size: 120% auto;
-                background-repeat: no-repeat;
-            }
-
-            body {
-                background-color: transparent;
-                background-image:
-                url("none");
+                background-size: 100% auto;
+                background-color: var(--color-white);
             }
 
             .nav-container {
@@ -494,33 +483,38 @@
 
             .hero-wedgames {
                 min-height: auto;
-                padding: 100px 20px 40px;
+                padding: 100px 20px 60px;
                 background-position: center top;
                 background-size: cover;
-                background: transparent;
             }
 
             .hero-title {
-                font-size: 50px;
+                font-size: 48px;
                 line-height: 1.1;
+                margin-bottom: 16px;
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 30px;
+                margin-bottom: 20px;
             }
 
             .hero-text {
                 font-size: 14px;
             }
 
-            section {
+           .section {
                 padding: 30px 20px;
                 max-width: 100%;
             }
 
-            section {
+            .section {
                 padding: 60px 20px;
                 max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 36px;
             }
 
             .section-summary {
@@ -530,7 +524,7 @@
             .section-summary::before {
                 font-size: 28px;
             }
-            
+
             .bg-section {
                 max-width: 100vw;
                 width: 100vw;
@@ -541,6 +535,11 @@
             .bg-section-inner {
                 /* ancora: niente min-height */
                 padding: 40px 16px;
+            }
+
+             .section-intro {
+                font-size: 14px;
+                padding: 0 8px;
             }
 
             .bg-section-box {
@@ -561,12 +560,7 @@
                 width: 100%;
             }
 
-            .section-intro {
-                font-size: 14px;
-                padding: 0 8px;
-            }
-
-             .bg-section-title {
+            .bg-section-title {
                 text-align: center;
                 margin-bottom: 16px;
             }
@@ -578,7 +572,7 @@
                 margin-bottom: 24px;
             }
 
-             .section-alt {
+            .section-alt {
                 background: transparent;
             }
 
@@ -612,63 +606,189 @@
             .hero-subtitle {
                 font-size: 16px;
             }
+
+            .bg-section-inner {
+                padding: 32px 14px;
+            }
         }
 
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
-    </style></head><body><!-- NAVBAR --><nav class="nav-bar"><div class="nav-container"><a href="index.html#home" class="nav-logo">G & A</a><button class="nav-toggle"
+    </style>
+</head>
+
+<body><!-- NAVBAR -->
+    <nav class="nav-bar">
+        <div class="nav-container"><a href="index.html#home" class="nav-logo">G & A</a><button class="nav-toggle"
                 aria-label="Apri menù"><span class="nav-toggle-line"></span><span class="nav-toggle-line"></span><span
-                    class="nav-toggle-line"></span></button><ul class="nav-menu"><li><a href="index.html#home">Torna alla Home</a></li><li><a href="#crazyfoto">CrazyFotoContest</a></li><li><a href="#cacciatesoro">Caccia al Tesoro</a></li><li><a href="#wedtinder">WedTinder</a></li></ul></div></nav><!-- HERO WEDGAMES --><section id="home-wedgames" class="hero-wedgames"><div class="hero-content"><h1 class="hero-title">WedGames!</h1><div class="hero-divider"></div><p class="hero-subtitle">Tre mini-giochi e piccole sfide per rendere il matrimonio ancora più nostro.</p><p class="hero-text">
+                    class="nav-toggle-line"></span></button>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Torna alla Home</a></li>
+                <li><a href="#crazyfoto">CrazyFotoContest</a></li>
+                <li><a href="#cacciatesoro">Caccia al Tesoro</a></li>
+                <li><a href="#wedtinder">WedTinder</a></li>
+            </ul>
+        </div>
+    </nav><!-- HERO WEDGAMES -->
+    <section id="home-wedgames" class="hero-wedgames">
+        <div class="hero-content">
+            <h1 class="hero-title">WedGames!</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Tre mini-giochi e piccole sfide per rendere il matrimonio ancora più nostro.</p>
+            <p class="hero-text">
                 Abbiamo preparato qualche gioco per coinvolgervi durante il grande giorno.
                 Nessuna gara vera e propria, solo un modo divertente per collezionare ricordi insieme.
-            </p></div></section><!-- SEZIONE 1: CrazyFotoContest --><section id="crazyfoto" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">
+            </p>
+        </div>
+    </section><!-- SEZIONE 1: CrazyFotoContest -->
+    <section id="crazyfoto" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <details class="section-details">
+                    <summary class="section-summary">
                         CrazyFotoContest
-                    </summary><p class="section-intro">
+                    </summary>
+                    <p class="section-intro">
                         Un piccolo contest fotografico per catturare i momenti più spontanei e divertenti della
                         giornata.
-                    </p><div class="game-card"><div class="game-tag">CrazyFotoContest</div><!--<p class="game-title">Istruzioni "CrazyFotoContest"</p>--><p class="game-tagline">
+                    </p>
+                    <div class="game-card">
+                        <div class="game-tag">CrazyFotoContest</div>
+                        <!--<p class="game-title">Istruzioni "CrazyFotoContest"</p>-->
+                        <p class="game-tagline">
                             Durante la giornata scatta le "CrazyFoto" in lista e caricale sull'album fotografico del
                             matrimonio.
-                        </p><ul class="game-list"><li>Scatta la foto.</li><li>Carica le foto sull'album fotografico online.</li></ul><p class="game-highlight">
+                        </p>
+                        <ul class="game-list">
+                            <li>Scatta la foto.</li>
+                            <li>Carica le foto sull'album fotografico online.</li>
+                        </ul>
+                        <p class="game-highlight">
                             Tip: per uno svolgimento sobrio e non invasivo del gioco, non intrometterti tra i fotografi;
                             resta in disparte e cattura i momenti come solo Fabrizio Corona avrebbe potuto fare!
-                        </p><div class="rules-panel"><details class="section-details"><summary class="section-summary-reg">Regolamento</summary><ul><li>Fai un selfie di gruppo al tuo tavolo.</li><li>Scatta una foto alla sala dalla balconata.</li><li>Scatta una foto di nascosto mentre gli sposi stanno mangiando.</li><li>Scatta una foto ai fotografi che fanno una foto agli sposi.</li><li>Scatta una foto al padre dello sposo e al padre della sposa insieme.</li><li>Scatta una foto alla madre dello sposo e alla madre della sposa insieme.</li><li>Scatta una foto allo sposo senza giacca.</li><li>Scatta una foto al più giovane e al più anziano della festa, insieme.</li><li>Fai una foto allo sposo che suona.</li><li>Fai una foto a JackRambo durante il djset.</li></ul></details></div></div></details></div></div></section><!-- SEZIONE 2: Caccia al Tesoro --><section id="luoghi" class="section-alt bg-section"><div class="bg-section-inner"><div class="bg-section-box-alt"><details class="section-details"><summary class="section-summary">
+                        </p>
+                        <div class="rules-panel">
+                            <details class="section-details">
+                                <summary class="section-summary-reg">Regolamento</summary>
+                            <ul>
+                                <li>Fai un selfie di gruppo al tuo tavolo.</li>
+                                <li>Scatta una foto alla gente in Sala Biblioteca dalla balconata.</li>
+                                <li>Scatta una foto di nascosto mentre gli sposi stanno mangiando.</li>
+                                <li>Scatta una foto ai fotografi che fanno una foto agli sposi.</li>
+                                <li>Scatta una foto al padre dello sposo e al padre della sposa, insieme.</li>
+                                <li>Scatta una foto alla madre dello sposo e alla madre della sposa, insieme.</li>
+                                <li>Scatta una foto agli sposi durante il ballo.</li>
+                                <li>Scatta una foto al più giovane e al più anziano della festa, insieme.</li>
+                                <li>Fai una foto allo sposo che suona.</li>
+                                <li>Fai una foto a JackRambo durante il djset.</li>
+                            </ul>
+                            </details>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section><!-- SEZIONE 2: Caccia al Tesoro -->
+    <section id="cacciatesoro" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <details class="section-details">
+                    <summary class="section-summary">
                         Caccia al Tesoro
-                    </summary><p class="section-intro">
+                    </summary>
+                    <p class="section-intro">
                         Una caccia al tesoro tra indizi, persone e luoghi della location. Riuscirai a trovare il premio
                         nascosto?
-                    </p><div class="game-card"><div class="game-tag">Caccia al Tesoro</div><!--<p class="game-title">Istruzioni "Caccia al Tesoro"</p> --><p class="game-tagline">
+                    </p>
+                    <div class="game-card">
+                        <div class="game-tag">Caccia al Tesoro</div>
+                        <!--<p class="game-title">Istruzioni "Caccia al Tesoro"</p> -->
+                        <p class="game-tagline">
                             Risolvi i misteri, scopri chi nasconde i vari indizi e trova il tesoro nascosto.
-                        </p><ul class="game-list"><li>Trova gli indizi che ti porteranno al tesoro nascosto.</li><li>Parla con le persone giuste e scopri chi nasconde il prossimo indizio.</li></ul><p class="game-highlight">
+                        </p>
+                        <ul class="game-list">
+                            <li>Trova gli indizi che ti porteranno al tesoro nascosto.</li>
+                            <li>Parla con le persone giuste e scopri chi nasconde il prossimo indizio.</li>
+                        </ul>
+                        <p class="game-highlight">
                             Tip: non è una gara di velocità. Goditi la giornata, risolvi gli indizi e condividi le
                             scoperte con
                             il tuo gruppo… spesso le sorprese (o i tesori) escono fuori a fine serata!
-                        </p><div class="rules-panel"><details class="section-details"><summary class="section-summary-reg">Regolamento</summary><ul><li>Si parte da un primo indizio che trovate qui sotto.</li><li>Ogni indizio vi porterà da una persona diversa che consegnerà l'indizio
+                        </p>
+                        <div class="rules-panel">
+                            <details class="section-details">
+                                <summary class="section-summary-reg">Regolamento</summary>
+                                <ul>
+                                    <li>Si parte da un primo indizio che trovate qui sotto.</li>
+                                    <li>Ogni indizio vi porterà da una persona diversa che consegnerà l'indizio
                                         successivo;
                                         l'ultimo
-                                        indizio rivelerà il luogo in cui è nascosto il tesoro.</li><li>Puoi giocare da solo oppure condividere gli indizi con chi vuoi.</li><li>Se riuscirai a trovarlo potrai portare a casa il tesoro da te trovato!</li></ul><div style="font-weight: bold; font-style: italic; margin-top: 8px;"><p>Indizio 1:</p><p>
+                                        indizio rivelerà il luogo in cui è nascosto il tesoro.</li>
+                                    <li>Puoi giocare da solo oppure condividere gli indizi con chi vuoi.</li>
+                                    <li>Se riuscirai a trovarlo potrai portare a casa il tesoro da te trovato!</li>
+                                </ul>
+                                <div style="font-weight: bold; font-style: italic; margin-top: 8px;">
+                                    <p>Indizio 1:</p>
+                                    <p>
                                         Nel 2009 dall'Abruzzo e Basilicata i nostri sposi sono partiti. Lei per Milano,
                                         lui per Pisa
                                         con i cuori di speranza e gioia riempiti. Con la valigia in mano hanno preso
                                         l'autobus e il
                                         treno per andare, ma con chi sono andati ad abitare?
-                                    </p></div></details></div></div></details></div></div></section><!-- SEZIONE 3: WedTinder --><section id="wedtinder" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">
+                                    </p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section><!-- SEZIONE 3: WedTinder -->
+    <section id="wedtinder" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <details class="section-details">
+                    <summary class="section-summary">
                         WedTinder
-                    </summary><p class="section-intro">
-                        Un gioco leggero per chi voglia di conoscersi, chiacchierare e creare nuovi legami.
-                    </p><div class="game-card"><div class="game-tag">WedTinder</div><!--<p class="game-title">Istruzioni "WedTinder"</p>--><p class="game-tagline">L'amore dà, l'amore DAJEEEEEEEEEEEEEEEEEEEE!</p><p class="game-text">
+                    </summary>
+                    <p class="section-intro">
+                        Un gioco leggero per single (e non solo) che hanno voglia di conoscersi, chiacchierare e magari
+                        creare nuovi legami.
+                    </p>
+                    <div class="game-card">
+                        <div class="game-tag">WedTinder</div>
+                        <!--<p class="game-title">Istruzioni "WedTinder"</p>-->
+                        <p class="game-tagline">L'amore dà, l'amore DAJEEEEEEEEEEEEEEEEEEEE!</p>
+                        <p class="game-text">
                             Sei single? Vuoi metterti in gioco? Pensi che dall'amore possa nascere altro amore?
-                        </p><ul class="game-list"><li>Accedi al form qui sotto e partecipa al dating game del matrimonio!</li><li>Durante la giornata gli ospiti potranno accedere alla lista dei giocatori e “matchare”
-                                la loro anima gemella!</li></ul><p class="game-highlight">
+                        </p>
+                        <ul class="game-list">
+                            <li>Accedi al form qui sotto e partecipa al dating game del matrimonio!</li>
+                            <li>Durante la giornata gli ospiti potranno accedere alla lista dei giocatori e “matchare”
+                                la loro anima gemella!</li>
+                        </ul>
+                        <p class="game-highlight">
                             Tip: pensalo come un modo divertente per conoscere gli altri invitati, farsi due risate e
                             magari trovare la tua anima gemella.
-                        </p><div style="margin-top: 18px; text-align: center;"><a
+                        </p>
+                        <div style="margin-top: 18px; text-align: center;"><a
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSficM3BH3Nj1nk1y9ps75UUjEyt2MBsMqW2A9aH1ag0oc1bTw/viewform"
                                 target="_blank" class="game-btn">
                                 Compila il form WedTinder
-                            </a></div></div></details></div></div></section><!-- FOOTER --><footer class="footer"><p class="footer-text">WedGames! di Graziano e Anna</p><p class="footer-date">7 dicembre 2026</p><p class="footer-date" id="countdown"></p></footer><script>
+                            </a></div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section><!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-text">WedGames! di Graziano e Anna</p>
+        <p class="footer-date">7 dicembre 2026</p>
+        <p class="footer-date" id="countdown"></p>
+    </footer>
+    <script>
         // Mobile hamburger menu
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
@@ -710,29 +830,7 @@
                 }
             });
         });
+    </script>
+</body>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // prendi tutte le sezioni gioco (crazyfoto, wedtinder, ecc.)
-            const gameSections = document.querySelectorAll('section.bg-section');
-
-            gameSections.forEach(function (section) {
-                // per ciascuna, trova il details principale
-                const mainDetails = section.querySelector(':scope > .bg-section-inner .bg-section-box > details.section-details');
-
-                if (!mainDetails) return;
-
-                mainDetails.addEventListener('toggle', function () {
-                    // se la sezione principale viene chiusa...
-                    if (!mainDetails.open) {
-                        // ...chiudi tutti i <details> interni (regolamenti, sotto-regole, ecc.)
-                        const innerDetails = mainDetails.querySelectorAll('details');
-                        innerDetails.forEach(function (d) {
-                            if (d !== mainDetails) {
-                                d.open = false;
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    </script></body></html>
+</html>

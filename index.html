@@ -1,5 +1,13 @@
-<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Graziano e Anna - Ci Sposiamo!</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
-        rel="stylesheet"><style>
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graziano e Anna - Ci Sposiamo!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@…"
+        rel="stylesheet">
+    <style>
         /* MANDATORY RESPONSIVE TEXT PROTECTION */
         * {
             margin: 0;
@@ -38,7 +46,6 @@
             --color-white: #ffffff;
             --color-cream: #faf8f5;
         }
-
 
         /* blocco contenitore dell'IBAN */
         .copy-block {
@@ -115,9 +122,10 @@
             background-color: var(--color-white);
             line-height: 1.6;
             overflow-x: hidden;
+            /* DESKTOP/TABLET: solo sfondo laterale side.png *//* DESKTOP/TABLET: solo sfondo laterale side.png */
             background-image:
-                url("side.png"),
-                url("side.png");
+                url("side3.png"),
+                url("side3.png");
             background-repeat: repeat-y, repeat-y;
             background-position: left center, right center;
             background-size: 120px auto, 120px auto;
@@ -140,7 +148,7 @@
         /* titolo (summary) delle sotto-sezioni */
         .info-subsection-title {
             font-family: 'FlorilaneCardillac';
-            font-size: 32px;
+            font-size: 38px;
             color: var(--color-primary);
             text-align: center;
             padding: 18px 0;
@@ -175,6 +183,67 @@
 
         .info-list li {
             margin-bottom: 6px;
+        }
+
+        /* info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+
+        .info-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            ;
+            font-size: 20px;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            word-break: break-word;
+        }
+
+        .info-card p {
+            color: var(--color-text-light);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .info-distance {
+            color: var(--color-accent);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .info-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: transparent;
+            color: var(--color-primary);
+            text-decoration: none;
+            border: 1px solid var(--color-primary);
+            border-radius: 20px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .info-btn:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
         }
 
         /* Navigation */
@@ -254,13 +323,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
+            /*linear-gradient(135deg, rgba(250, 249, 248, 0.75), rgba(250, 248, 245, 0.75)),*/
                 /*linear-gradient(135deg, rgba(250, 248, 245, 0.75), rgba(245, 230, 211, 0.85)),*/
-                url("home.jpg") center center / cover no-repeat;padding: 100px 30px 60px;
+                url("home.jpg") center bottom / cover no-repeat;
             padding: 100px 30px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background-size: 100% auto;
         }
 
         .hero-content {
@@ -276,11 +347,6 @@
             color: var(--color-primary);
             margin-bottom: 20px;
             letter-spacing: 2px;
-            background:
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;            
         }
 
         .hero-subtitle {
@@ -293,14 +359,10 @@
 
         .hero-date {
             font-family: 'FlorilaneCardillac';
+            ;
             font-size: 40px;
             color: var(--color-text);
             margin-bottom: 10px;
-            background: 
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;
         }
 
         .hero-location {
@@ -310,11 +372,6 @@
             color: var(--color-accent);
             margin-bottom: 40px;
             font-weight: 500;
-            background: 
-            rgba(250, 248, 245, 0.75); 
-            /*rgba(245, 230, 211, 0.85);*/
-            border-radius: 50px;
-            padding: 10px 10px;
         }
 
         .hero-btn {
@@ -384,6 +441,12 @@
         }
 
         .bg-section-inner {
+            /*background: linear-gradient(to bottom,
+                    rgba(250, 248, 245, 0.85),
+                    rgba(245, 230, 211, 0.75),
+                    rgba(245, 230, 211, 0.0)); */
+            /* niente height fissa */
+            /* niente min-height enorme */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -603,15 +666,15 @@
             display: block;
         }
 
-        /* info Cards */
-        .info-grid {
+        /* Accommodation Cards */
+        .accommodation-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 50px;
         }
 
-        .info-card {
+        .accommodation-card {
             background: var(--color-white);
             border-radius: 10px;
             padding: 30px;
@@ -620,12 +683,12 @@
             min-width: 0;
         }
 
-        .info-card:hover {
+        .accommodation-card:hover {
             border-color: var(--color-primary);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .info-card h3 {
+        .accommodation-card h3 {
             font-family: Georgia, 'Times New Roman', Times, serif;
             ;
             font-size: 20px;
@@ -634,20 +697,20 @@
             word-break: break-word;
         }
 
-        .info-card p {
+        .accommodation-card p {
             color: var(--color-text-light);
             font-size: 14px;
             margin-bottom: 15px;
         }
 
-        .info-distance {
+        .accommodation-distance {
             color: var(--color-accent);
             font-size: 13px;
             font-weight: 500;
             margin-bottom: 20px;
         }
 
-        .info-btn {
+        .accommodation-btn {
             display: inline-block;
             padding: 8px 20px;
             background: transparent;
@@ -659,7 +722,7 @@
             transition: all 0.3s ease;
         }
 
-        .info-btn:hover {
+        .accommodation-btn:hover {
             background: var(--color-primary);
             color: var(--color-white);
         }
@@ -749,6 +812,25 @@
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
         }
 
+        /* opzionale: riduci un po’ il padding su mobile per non stringere troppo */
+        @media (max-width: 768px) {
+            .story-column {
+                padding: 20px 18px;
+            }
+
+            .story-image-top {
+                height: 100px;
+                /* più bassa su mobile */
+                margin: 10px auto 10px;
+                /* un po’ meno spazio */
+            }
+
+            .story-image-top img {
+                object-position: center top;
+                /* se vuoi “spostare” il focus verso l’alto */
+            }
+        }
+
         .story-column p {
             margin-bottom: 25px;
             color: var(--color-text-light);
@@ -823,6 +905,285 @@
         }
 
         
+
+        /* --- MOBILE: body con back.jpg al 150% + gradiente per ogni sezione --- */
+        @media (max-width: 768px) {
+            body {
+                /* NIENTE side.png su mobile, solo back.jpg meno zoom (150%) */
+                background-image: url("back4.jpg");
+                background-repeat: repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                background-size: 100% auto;
+                background-color: var(--color-white);
+            }
+
+            section {
+                padding: 30px 20px;
+                max-width: 100%;
+            }
+
+            .nav-container {
+                padding: 0 16px;
+            }
+
+            /* Mostra hamburger su mobile */
+            .nav-toggle {
+                display: block;
+            }
+
+            /* Menu a tendina mobile: nascosto di default, a tutta larghezza sotto l’header */
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                list-style: none;
+                padding: 10px 0 12px;
+                margin: 0;
+                display: none;
+                /* di base chiuso */
+                flex-direction: column;
+                gap: 0;
+                z-index: 999;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 20px;
+                border-top: 1px solid #f0f0f0;
+                font-size: 15px;
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 100px 20px 60px;
+                background-position: center top;
+                background-size: cover;
+                
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-title {
+                font-size: 48px;
+                line-height: 1.1;
+                margin-bottom: 16px;
+            }
+
+            .hero-subtitle {
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+
+            .hero-date {
+                font-size: 32px;
+            }
+
+            .hero-location {
+                font-size: 32px;
+                margin-bottom: 24px;
+            }
+
+            .hero-btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 60px 20px;
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .section-summary {
+                font-size: 32px;
+            }
+
+            .section-summary::before {
+                font-size: 28px;
+            }
+
+            .section-intro {
+                font-size: 14px;
+                padding: 0 8px;
+            }
+
+            /* CONTENITORE MOBILE: gradiente trasparente per tutte le sezioni bg-section */
+            .bg-section {
+                max-width: 100vw;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+            }
+
+            .bg-section-inner {
+                /* ancora: niente min-height */
+                padding: 40px 16px;
+            }
+
+            .bg-section-box {
+                background: var(--color-white);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-box-alt {
+                background: var(--color-cream);
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                max-width: 720px;
+                width: 100%;
+            }
+
+            .bg-section-title {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .bg-section-intro {
+                text-align: center;
+                color: var(--color-text-light);
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            /* Timeline dentro il box */
+            .timeline {
+                max-width: 100%;
+                margin-top: 8px;
+                padding-left: 20px;
+            }
+
+            .timeline::before {
+                left: 12px;
+                transform: none;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                margin-bottom: 40px;
+                padding-left: 24px;
+            }
+
+            .timeline-time {
+                text-align: left !important;
+                padding: 0 0 6px 0 !important;
+                font-size: 18px;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: 0;
+            }
+
+            .timeline-content {
+                padding: 16px 18px !important;
+                width: 100%;
+                margin-top: 4px;
+            }
+
+            .timeline-content h3 {
+                font-size: 18px;
+            }
+
+            .timeline-content p {
+                font-size: 14px;
+            }
+
+            /* Griglie dentro il box */
+            .venue-grid,
+            .accommodation-grid,
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .venue-card,
+            .accommodation-card {
+                padding: 22px;
+            }
+
+            .venue-card h3 {
+                font-size: 20px;
+            }
+
+            .accommodation-card h3 {
+                font-size: 20px;
+            }
+
+            .accommodation-card p,
+            .venue-address {
+                font-size: 14px;
+            }
+
+            .story-column p {
+                font-size: 14px;
+            }
+
+            .section-alt {
+                background: transparent;
+            }
+
+            .rsvp-container {
+                padding: 0;
+            }
+
+            .photos-content {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 600px),
+        (max-height: 500px) {
+
+            section {
+                padding: 24px 16px;
+            }
+
+            .venue-grid,
+            .accommodation-grid,
+            .story-content {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 30px;
+            }
+
+            .hero-btn {
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .bg-section-inner {
+                padding: 32px 14px;
+            }
+        }
 
         /* WedGames Section */
         .wedgames-section {
@@ -966,8 +1327,8 @@
             }
         }
 
+        /* Mobile tweaks WedGames */
         @media (max-width: 768px) {
-            
             .fountain-left {
                 left: 2%;
             }
@@ -984,305 +1345,8 @@
             .wedgames-btn {
                 width: 100%;
                 max-width: 260px;
-                font-size: 14px;
+                font-size: 16px;
                 padding: 14px 24px;
-            }
-            
-            
-            .story-column {
-                padding: 20px 18px;
-            }
-
-            .story-image-top {
-                height: 100px;
-                /* più bassa su mobile */
-                margin: 10px auto 10px;
-                /* un po’ meno spazio */
-            }
-
-            .story-image-top img {
-                object-position: center top;
-                /* se vuoi “spostare” il focus verso l’alto */
-            }
-            
-            html {
-                background-image: url("back3.jpg");
-                background-position: center top;
-                background-attachment: fixed;
-                background-size: 130% auto;
-                background-repeat: no-repeat;
-            }
-
-            body {
-                background-color: transparent;
-                background-image:
-                url("none");
-            }
-
-            section {
-                padding: 30px 20px;
-                max-width: 100%;
-            }
-
-            .nav-container {
-                padding: 0 16px;
-            }
-
-            /* Mostra hamburger su mobile */
-            .nav-toggle {
-                display: block;
-            }
-
-            /* Menu a tendina mobile: nascosto di default, a tutta larghezza sotto l’header */
-            .nav-menu {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                background: rgba(255, 255, 255, 0.98);
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-                list-style: none;
-                padding: 10px 0 12px;
-                margin: 0;
-                display: none;
-                /* di base chiuso */
-                flex-direction: column;
-                gap: 0;
-                z-index: 999;
-            }
-
-            .nav-menu li {
-                width: 100%;
-            }
-
-            .nav-menu a {
-                display: block;
-                padding: 10px 20px;
-                border-top: 1px solid #f0f0f0;
-                font-size: 15px;
-            }
-
-            .nav-menu a:last-child {
-                border-bottom: 1px solid #f0f0f0;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 100px 20px 60px;
-                background-position: center top;
-                background-size: cover;
-                background: transparent;
-            }
-
-            .hero-content {
-                max-width: 100%;
-            }
-
-            .hero-title {
-                font-size: 48px;
-                line-height: 1.1;
-                margin-bottom: 16px;
-            }
-
-            .hero-subtitle {
-                font-size: 30px;
-                margin-bottom: 20px;
-            }
-
-            .hero-date {
-                font-size: 32px;
-            }
-
-            .hero-location {
-                font-size: 32px;
-                margin-bottom: 24px;
-            }
-
-            .hero-btn {
-                padding: 12px 30px;
-                font-size: 14px;
-            }
-
-            section {
-                padding: 60px 20px;
-                max-width: 100%;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .section-summary {
-                font-size: 32px;
-            }
-
-            .section-summary::before {
-                font-size: 28px;
-            }
-
-            .section-intro {
-                font-size: 14px;
-                padding: 0 8px;
-            }
-
-            /* CONTENITORE MOBILE: gradiente trasparente per tutte le sezioni bg-section */
-            .bg-section {
-                max-width: 100vw;
-                width: 100vw;
-                margin: 0;
-                padding: 0;
-            }
-
-            .bg-section-inner {
-                /* ancora: niente min-height */
-                padding: 40px 16px;
-            }
-
-            .bg-section-box {
-                background: var(--color-white);
-                border-radius: 12px;
-                padding: 20px;
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-                max-width: 720px;
-                width: 100%;
-            }
-
-            .bg-section-box-alt {
-                background: var(--color-cream);
-                border-radius: 12px;
-                padding: 20px;
-                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-                max-width: 720px;
-                width: 100%;
-            }
-
-            .bg-section-title {
-                text-align: center;
-                margin-bottom: 16px;
-            }
-
-            .bg-section-intro {
-                text-align: center;
-                color: var(--color-text-light);
-                font-size: 14px;
-                margin-bottom: 24px;
-            }
-
-            /* Timeline dentro il box */
-            .timeline {
-                max-width: 100%;
-                margin-top: 8px;
-                padding-left: 20px;
-            }
-
-            .timeline::before {
-                left: 12px;
-                transform: none;
-            }
-
-            .timeline-item {
-                flex-direction: column !important;
-                align-items: flex-start;
-                margin-bottom: 40px;
-                padding-left: 24px;
-            }
-
-            .timeline-time {
-                text-align: left !important;
-                padding: 0 0 6px 0 !important;
-                font-size: 18px;
-            }
-
-            .timeline-dot {
-                position: absolute;
-                left: 0;
-            }
-
-            .timeline-content {
-                padding: 16px 18px !important;
-                width: 100%;
-                margin-top: 4px;
-            }
-
-            .timeline-content h3 {
-                font-size: 18px;
-            }
-
-            .timeline-content p {
-                font-size: 14px;
-            }
-
-            /* Griglie dentro il box */
-            .venue-grid,
-            .info-grid,
-            .story-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .venue-card,
-            .info-card {
-                padding: 22px;
-            }
-
-            .venue-card h3 {
-                font-size: 20px;
-            }
-
-            .info-card h3 {
-                font-size: 20px;
-            }
-
-            .info-card p,
-            .venue-address {
-                font-size: 14px;
-            }
-
-            .story-column p {
-                font-size: 14px;
-            }
-
-            .section-alt {
-                background: transparent;
-            }
-
-            .rsvp-container {
-                padding: 0;
-            }
-
-            .photos-content {
-                padding: 0;
-            }
-        }
-
-        @media (max-width: 600px),
-        (max-height: 500px) {
-
-            section {
-                padding: 24px 16px;
-            }
-
-            .venue-grid,
-            .info-grid,
-            .story-content {
-                grid-template-columns: 1fr !important;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .hero-subtitle {
-                font-size: 30px;
-            }
-
-            .hero-btn {
-                width: 100%;
-                max-width: 260px;
-            }
-
-            .bg-section-inner {
-                padding: 32px 14px;
             }
         }
 
@@ -1290,59 +1354,191 @@
         html {
             scroll-behavior: smooth;
         }
-    </style></head><body><!-- Navigation --><nav class="nav-bar"><div class="nav-container"><a href="#home" class="nav-logo">G & A</a><!-- Bottone hamburger (mobile) --><button
+    </style>
+</head>
+
+<body><!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container"><a href="#home" class="nav-logo">G & A</a><!-- Bottone hamburger (mobile) --><button
                 class="nav-toggle" aria-label="Apri menù"><span class="nav-toggle-line"></span><span
                     class="nav-toggle-line"></span><span
-                    class="nav-toggle-line"></span></button><!-- Menu principale --><ul class="nav-menu"><li><a href="#home">Home</a></li><li><a href="#programma">Programma</a></li><li><a href="#luoghi">Luoghi</a></li><li><a href="#wedgames">WedGames!</a></li><li><a href="#storia">Il viaggio continua</a></li><li><a href="#info-utili">Info Utili</a></li><li><a href="#foto">Foto</a></li><li><a href="#rsvp">RSVP</a></li></ul></div></nav><!-- Hero Section --><section id="home" class="hero"><div class="hero-content"><h1 class="hero-title">Graziano e Anna</h1><div class="hero-divider"></div><!-- <p class="hero-subtitle">Ci sposiamo!</p> --><p class="hero-date">Lunedì 7 dicembre 2026</p><p class="hero-location">Lanciano (CH)</p><a href="#programma" class="hero-btn">Scopri i dettagli</a></div></section><!-- Schedule Section --><section id="programma" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">
+                    class="nav-toggle-line"></span></button><!-- Menu principale -->
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#programma">Programma</a></li>
+                <li><a href="#luoghi">Luoghi</a></li>
+                <li><a href="#wedgames">WedGames!</a></li>
+                <li><a href="#storia">Il viaggio continua</a></li>
+                <li><a href="#info-utili">Info Utili</a></li>
+                <li><a href="#foto">Foto</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+            </ul>
+        </div>
+    </nav><!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Graziano e Anna</h1>
+            <div class="hero-divider"></div><!-- <p class="hero-subtitle">Ci sposiamo!</p> -->
+            <p class="hero-date">Lunedì 7 dicembre 2026</p>
+            <p class="hero-location">Lanciano (CH)</p><a href="#programma" class="hero-btn">Scopri i dettagli</a>
+        </div>
+    </section>
+    <!-- Schedule Section -->
+    <section id="programma" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <details class="section-details">
+                    <summary class="section-summary">
                         Programma
-                    </summary><p class="section-intro bg-section-intro">
+                    </summary>
+                    <p class="section-intro bg-section-intro">
                         Un giorno speciale che vogliamo condividere con voi. Ecco il programma degli eventi!
-                    </p><div class="timeline"><div class="timeline-item"><div class="timeline-time">06/12 - h18:30</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Serenata</h3><p>Ci ritroviamo la sera prima della cerimonia presso la Casa della Sposa per la
+                    </p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-time">06/12 - h18:30</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Serenata</h3>
+                                <p>Ci ritroviamo la sera prima della cerimonia presso la Casa della Sposa per la
                                     classica
-                                    serenata pre-matrimonio. A seguire un piccolo aperitivo preparato dalla Marisa.</p><br><p>📍 <a href="#luogo-serenata" class="program-location-link">
-                                        Casa della Sposa</a></p></div></div><div class="timeline-item"><div class="timeline-time">7/12 - h11:00</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Cerimonia Religiosa</h3><p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Per godersi al meglio la cerimonia consigliamo di arrivare con almeno 20 min di anticipo. Mi raccomando, Padre Milton non ama i ritardatari!</p><br><p>📍 <a href="#luogo-cerimonia" class="program-location-link">
-                                        Cattedrale Madonna del Ponte</a></p></div></div><div class="timeline-item"><div class="timeline-time">7/12 - h13:00</div><div class="timeline-dot"></div><div class="timeline-content"><h3>Pranzo e Festeggiamenti</h3><p>La festa proseguirà con parenti e amici in una location "Country Chic", sobria ed
-                                    elegante immersa nel verde delle colline teatine. Cibo, buon vino e musica fino a
-                                    notte
-                                    fonda!</p><br><p>📍 <a href="#luogo-ricevimento" class="program-location-link">
-                                        La Chiave Bianca</a></p></div></div></div></details></div></div></section><!-- Venues Section --><section id="luoghi" class="section-alt bg-section"><div class="bg-section-inner"><div class="bg-section-box-alt"><details class="section-details"><summary class="section-summary">Luoghi</summary><p class="section-intro bg-section-intro">
+                                    serenata pre-matrimonio. A seguire un piccolo aperitivo preparato dalla Marisa.</p>
+                                <br>
+                                <p>📍 <a href="#luogo-serenata" class="program-location-link">
+                                        Casa della Sposa</a></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">7/12 - h11:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Cerimonia Religiosa</h3>
+                                <p>La Cerimonia avrà luogo nella barocca e sontuosa Cattedrale di Lanciano. Per godere al meglio della cerimonia e dell'arrivo della sposa consigliamo di arrivare con 15/20 min di anticipo. Mi raccomando, Padre Milton non ama i ritardatari!</p><br>
+                                <p>📍 <a href="#luogo-cerimonia" class="program-location-link">
+                                        Cattedrale Madonna del Ponte</a></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-time">7/12 - h13:00</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Pranzo e Festeggiamenti</h3>
+                                <p>La festa proseguirà con parenti e amici in una location "Country Chic", sobria ed
+                                    elegante immersa nel verde delle colline teatine. Cibo, vino, musica e tanto divertimento fino a
+                                    notte fonda!</p><br>
+                                <p>📍 <a href="#luogo-ricevimento" class="program-location-link">
+                                        La Chiave Bianca</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- Venues Section -->
+    <section id="luoghi" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <details class="section-details">
+                <summary class="section-summary">Luoghi</summary>
+                <p class="section-intro bg-section-intro">
                     I luoghi che ospiteranno la nostra celebrazione nel cuore
                     dell’Abruzzo.
-                </p><div class="venue-grid"><div class="venue-card" id="luogo-serenata"><img src="casasposa.jpg" alt="Casa della Sposa"
-                            class="venue-image"><p class="venue-name">Casa della Sposa</p><p class="venue-address">Via Panoramica, 62<br>Lanciano (CH)</p><a
+                </p>
+                <div class="venue-grid">
+                    <div class="venue-card" id="luogo-serenata"><img src="casasposa.jpg" alt="Casa della Sposa"
+                            class="venue-image">
+                        <p class="venue-name">Casa della Sposa</p>
+                        <p class="venue-address">Via Panoramica, 62<br>Lanciano (CH)</p><a
                             href="https://www.google.com/maps/place/Via+Panoramica,+62,+66034+Lanciano+CH"
-                            target="_blank" class="venue-link">Google Maps</a></div><div class="venue-card" id="luogo-cerimonia"><img src="cattedrale.jpg"
-                            alt="Cattedrale Madonna del Ponte" class="venue-image"><p class="venue-name">Cattedrale Madonna del Ponte</p><p class="venue-address">Piazza del Plebiscito, 1<br>Lanciano (CH)</p><a
-                            href="https://maps.app.goo.gl/CgDszhp74ZagfSJb7" target="_blank" class="venue-link">Google Maps</a></div><div class="venue-card" id="luogo-ricevimento"><img src="chiavebianca.jpg" alt="La Chiave Bianca"
-                            class="venue-image"><p class="venue-name">La Chiave Bianca</p><p class="venue-address">Contrada Cerreto, s.n.c.<br>Miglianico (CH)</p><a
-                            href="https://maps.app.goo.gl/NipHFW3FoUbMkX2D9" target="_blank" class="venue-link">Google Maps</a></div></div></details></div></div></section><!-- WedGames Section --><section id="wedgames" class="bg-section wedgames-section"><div class="bg-section-inner wedgames-inner"><!-- Coriandoli --><div class="confetti confetti-1"></div><div class="confetti confetti-2"></div><div class="confetti confetti-3"></div><!-- Fontane luminose stilizzate --><div class="fountain fountain-left"><span></span><span></span><span></span></div><div class="fountain fountain-right"><span></span><span></span><span></span></div><div class="bg-section-box wedgames-box"><details class="section-details"><summary class="section-summary">WedGames!</summary><p class="section-intro bg-section-intro">
-                    Una piccola sorpresa per voi: giochi, indovinelli e sfide leggere per divertirci insieme
-                    durante il matrimonio. Pronti a giocare?
+                            target="_blank" class="venue-link">Google Maps</a>
+                    </div>
+                    <div class="venue-card" id="luogo-cerimonia"><img src="cattedrale.jpg"
+                            alt="Cattedrale Madonna del Ponte" class="venue-image">
+                        <p class="venue-name">Cattedrale Madonna del Ponte</p>
+                        <p class="venue-address">Piazza del Plebiscito, 1<br>Lanciano (CH)</p><a
+                            href="https://maps.app.goo.gl/CgDszhp74ZagfSJb7" target="_blank" class="venue-link">Google Maps</a>
+                    </div>
+                    <div class="venue-card" id="luogo-ricevimento"><img src="chiavebianca.jpg" alt="La Chiave Bianca"
+                            class="venue-image">
+                        <p class="venue-name">La Chiave Bianca</p>
+                        <p class="venue-address">Contrada Cerreto, s.n.c.<br>Miglianico (CH)</p><a
+                            href="https://maps.app.goo.gl/NipHFW3FoUbMkX2D9" target="_blank" class="venue-link">Google Maps</a>
+                    </div>
+                </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- WedGames Section -->
+    <section id="wedgames" class="bg-section wedgames-section">
+        <div class="bg-section-inner wedgames-inner"><!-- Coriandoli -->
+            <div class="confetti confetti-1"></div>
+            <div class="confetti confetti-2"></div>
+            <div class="confetti confetti-3"></div><!-- Fontane luminose stilizzate -->
+            <div class="fountain fountain-left"><span></span><span></span><span></span></div>
+            <div class="fountain fountain-right"><span></span><span></span><span></span></div>
+            <div class="bg-section-box wedgames-box">
+                <details class="section-details">
+                <summary class="section-summary">WedGames!</summary>
+                <p class="section-intro bg-section-intro">
+                    Una piccola sorpresa per voi: giochi e sfide leggere per divertirci durante il matrimonio. Pronti a giocare?
                 </p><a href="wedgames.html" class="wedgames-btn">
                     Vai ai WedGames!
-                </a></details></div></div></section><!-- Il Viaggio Continua Section --><section id="storia" class="section-alt bg-section"><div class="bg-section-inner"><div class="bg-section-box-alt"><details class="section-details"><summary class="section-summary">Il viaggio continua...</summary><!--<p class="section-intro bg-section-intro">
+                </a>
+                </details>
+            </div>
+        </div>
+    </section>
+    </section>
+    <!-- Love Story Section -->
+    <section id="storia" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <details class="section-details">
+                <summary class="section-summary">Il viaggio continua...</summary>
+                <!--<p class="section-intro bg-section-intro">
                     Il viaggio che ci ha portato fino a questo momento speciale.
-                </p>--><div class="story-image-top"><img src="japan.jpg"></div><div class="story-content"><div class="story-column"><p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due
+                </p>-->
+                <div class="story-image-top"><img src="japan.jpg"></div>
+                <div class="story-content">
+                    <div class="story-column">
+                        <p>Fin dal primo momento in cui le nostre vite si sono incrociate abbiamo capito di avere due
                             motori trainanti
                             nella nostra relazione: il cibo e i viaggi. Abbiamo viaggiato in lungo e in largo (lavoro e
                             catostrofi naturali, covid, e
                             guerre permettendo) alla scoperta di luoghi, culture, tradizioni, popoli e sapori autentici
                             e che ci facessero sentire, ovunque, a casa.
-                        </p><p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di
+                        </p>
+                        <p>Quando non ci è stato possibile scoprire nuovi posti di persona, sul campo, abbiamo fatto di
                             tutto
                             per avvicinare a noi queste culture, cibi e tradizioni. Abbiamo acquisato utensili,
                             frequantato corsi di cucina e di arte, letto libri sulla loro filosofia, libri di ricette,
                             ci siamo seduti nei loro ristoranti ed esplorato mostre di cui Milano ne è piena.
-                        </p></div><div class="story-column"><p>Se non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette,
+                        </p>
+                    </div>
+                    <div class="story-column">
+                        <p>Se non si fosse capito cerchiamo di essere più espliciti: abbiamo acquistato bacchette,
                             vaporiere e bonsai, frequentato corsi di sushi (e quanto ne abbiamo mangiato!), letto libri
-                            sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p><p>
+                            sull'ikigai, ascoltato storie di imperatori, samurai e geishe.</p>
+                        <p>
                             E quale migliore occasione, se non il viaggio di nozze, per coronare questo sogno e
                             approdare finalmente in Giappone per immergirgi nella loro colutura?
                             Qualora voleste contribuire per aiutarci a realizzare questo nostro desiderio, trovate qui
                             sotto le nostre coordinate bancarie:
                         <div class="copy-block"><span class="copy-text" data-copy="ITXASJ138798797000000090279B">
                                 ITXASJ138798797000000090279B
-                            </span><span class="copy-check" aria-hidden="true">✅</span></div></p></div></div></details></div></div></section><!-- info Section --><section id="info-utili" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details  class="section-details"><summary class="section-summary">Info Utili</summary><p class="section-intro bg-section-intro">
+                            </span><span class="copy-check" aria-hidden="true">✅</span>
+                        </div>
+                        </p>
+                    </div>
+                </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- info utili -->
+    <section id="info-utili" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details  class="section-details"><summary class="section-summary">Info Utili</summary><p class="section-intro bg-section-intro">
                     Abbiamo raccolto alcune informazioni pratiche per aiutarvi ad organizzare al meglio
                     il vostro weekend con noi.
                 </p><div class="info-subsections"><!-- COME ARRIVARE --><details class="info-subsection"><summary class="info-subsection-title">Come Arrivare</summary><div class="info-subsection-content"><p>
@@ -1388,19 +1584,52 @@
                                 </li></ul><p>
                                 Per qualsiasi domanda pratica potete scriverci direttamente:
                                 saremo felici di supportarvi nell’organizzazione.
-                            </p></div></details></div><!-- /.info-subsections --></details></div></div></section><!-- Photos Section --><section id="foto" class="section-alt bg-section"><div class="bg-section-inner"><div class="bg-section-box-alt"><div class="photos-content"><details class="section-details"><summary class="section-summary">Foto</summary><p class="section-intro bg-section-intro">
+                            </p></div></details></div><!-- /.info-subsections --></details></div></div></section>
+    <!-- Photos Section -->
+    <section id="foto" class="section-alt bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box-alt">
+                <div class="photos-content">
+                    <details class="section-details">
+                    <summary class="section-summary">Foto</summary>
+                    <p class="section-intro bg-section-intro">
                         Prima, durante e dopo il matrimonio condivideremo qui le foto della giornata su Google Photos.
                         Potrete rivivere con noi i momenti più belli e scaricare i vostri ricordi preferiti.
                     </p><a href="https://photos.app.goo.gl/awZd1zz9jyntpFAb8" target="_blank" class="photos-btn">
                         Vai all'album
-                    </a></details></div></div></div></section><!-- RSVP Section --><section id="rsvp" class="bg-section"><div class="bg-section-inner"><div class="bg-section-box"><details class="section-details"><summary class="section-summary">RSVP </summary><div class="rsvp-container"><p class="rsvp-text">
+                    </a>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- RSVP Section -->
+    <section id="rsvp" class="bg-section">
+        <div class="bg-section-inner">
+            <div class="bg-section-box">
+                <details class="section-details">
+                <summary class="section-summary">RSVP </summary>
+                <div class="rsvp-container">
+                    <p class="section-intro bg-section-intro">
                         Per confermare la tua presenza, ti chiediamo di compilare il nostro modulo online. Ci
                         vorranno solo pochi minuti e ci aiuterai a organizzare al meglio questo giorno speciale.
                     </p><a
                         href="https://docs.google.com/forms/d/e/1FAIpQLScf7X5mLWsiIm0L_ch21AjCg0spXbCmZkp86ZkCzzTx0Ofkng/viewform"
                         target="_blank" class="rsvp-btn">
                         Compila il form RSVP
-                    </a></div></details></div></div></section><!-- Footer --><footer class="footer"><p class="footer-text">Con amore, Graziano e Anna</p><p class="footer-date">7 dicembre 2026</p><p class="footer-date" id="countdown"></p></footer><script>
+                    </a>
+                </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">Con amore, Graziano e Anna</p>
+        <p class="footer-date">7 dicembre 2026</p>
+        <p class="footer-date" id="countdown"></p>
+    </footer>
+    <script>
         // Mobile hamburger menu
 
         const navToggle = document.querySelector('.nav-toggle');
@@ -1523,7 +1752,7 @@
                 });
             }
 
-                    document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function () {
             // Selettore del blocco principale Info Utili
             const infoUtiliDetails = document.querySelector('#info-utili .section-details');
 
@@ -1540,4 +1769,7 @@
                 });
             }
         });
-        </script></body></html>
+        </script>
+</body>
+
+</html>
